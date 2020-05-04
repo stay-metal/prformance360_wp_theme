@@ -1,30 +1,30 @@
 # Performance 360 WP theme
 
 ## Theme structure
-/
-    /dist - минифицированые js и css
-        /assets
-            /css
-                admin.css - стили wp_admin
-                bundle.css - стили темы
-            /js
-                admin.js - js в wp-admin
-                bundle.js - js в теме
-    /lib -  php функци
-    /template-parts - включенные области в шаблонах
- header.php - подключаемая область header
- footer.php - подключаемая область footer  
- sidebar.php - подключаемая область sidebar 
- index.php - основной шаблон
- functions.php - generic файл с функциями WP
- loop.php - основной файл c loop WP
- searchform.php - форма поиска
- style.css - generic WP файл стилей
- 404.php - шаблон ошибки 404
- home.php - шаблон главной страницы
- page.php - шаблон вывода статичных страниц
- search.php - шаблон вывода результатов поиска
- single.php - шаблон вывода поста (записи)
+* /
+    * /dist - минифицированые js и css
+        * /assets
+            * /css
+               * admin.css - стили wp_admin
+               * bundle.css - стили темы
+            * /js
+               * admin.js - js в wp-admin
+               * bundle.js - js в теме
+    * /lib -  php функци
+    * /template-parts - включенные области в шаблонах
+ * header.php - подключаемая область header
+ * footer.php - подключаемая область footer  
+ * sidebar.php - подключаемая область sidebar 
+ * index.php - основной шаблон
+ * functions.php - generic файл с функциями WP
+ * loop.php - основной файл c loop WP
+ * searchform.php - форма поиска
+ * style.css - generic WP файл стилей
+ * 404.php - шаблон ошибки 404
+ * home.php - шаблон главной страницы
+ * page.php - шаблон вывода статичных страниц
+ * search.php - шаблон вывода результатов поиска
+ * single.php - шаблон вывода поста (записи)
 
 ### List of dev dependencies
 
