@@ -6,11 +6,12 @@ function _themename_post_meta() {
     the_tags();
     echo  '</div>';
     echo  '<div>';
-    echo  '<a href="'. get_permalink() .'">';
-    echo  '<time>' . get_the_time() . '</time>';
+    echo  '<a href="'. esc_url( get_permalink() ) .'">';
+    echo  '<time>' . esc_html( get_the_time() ) . '</time>';
     echo  '</a></div>';          
             
 }
+
 
 
 ?>
