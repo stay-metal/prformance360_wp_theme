@@ -1,5 +1,6 @@
 <?php get_header(); ?>
-
+    <?php 
+    do_action( '_themename_before_loop_start'); ?>
     <?php if ( have_posts() ) { ?>
         <?php while ( have_posts() ) { ?>
             <?php the_post(); ?>
@@ -11,6 +12,7 @@
                 <?php the_excerpt() ?>
             </div>
         <?php } ?> 
+        <?php the_posts_pagination(); ?>
     <?php } else { ?>
         <p>Записи не найдены</p>
     <?php } ?>
