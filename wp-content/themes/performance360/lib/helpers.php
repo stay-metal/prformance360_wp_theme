@@ -6,10 +6,14 @@ function _themename_post_meta() {
     the_tags();
     echo  '</div>';
     echo  '<div>';
-    echo  '<a href="'. esc_url( get_permalink() ) .'">';
-    echo  '<time>' . esc_html( get_the_time() ) . '</time>';
-    echo  '</a></div>';          
-            
+    _themename_post_time();
+    echo '</div>';                    
+}
+
+function _themename_post_time() {
+    // $time_diff = human_time_diff( get_post_time('U'), current_time('timestamp') );
+    echo  '<time>' . the_time() . '</time>';
+    
 }
 
 
