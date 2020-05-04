@@ -1,6 +1,6 @@
 # Performance 360 WP theme
 
-## Theme structure
+## Структура темы
 * /
     * /dist - минифицированые js и css
         * /assets
@@ -27,7 +27,7 @@
  * search.php - шаблон вывода результатов поиска
  * single.php - шаблон вывода поста (записи)
 
-### List of dev dependencies
+### Необходимые программы для разработки
 
     * @babel/core :  ^7.9.6 ,
     * @babel/preset-env :  ^7.9.6 ,
