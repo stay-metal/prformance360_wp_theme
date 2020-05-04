@@ -38,6 +38,7 @@ function _themename_time_format() {
     $mytimestamp = mb_strtolower ( $date . get_post_time('H:i') );
   }
   return $mytimestamp;
+  
 }
 
 ?>
