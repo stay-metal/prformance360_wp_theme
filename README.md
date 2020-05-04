@@ -11,7 +11,8 @@
                * admin.js - js в wp-admin
                * bundle.js - js в теме
     * /lib -  php функци
-    * /template-parts - включенные области в шаблонах
+    * helpers.php - функции для вывода частей контента
+        * /template-parts - включенные области в шаблонах
  * header.php - подключаемая область header
  * footer.php - подключаемая область footer  
  * sidebar.php - подключаемая область sidebar 
