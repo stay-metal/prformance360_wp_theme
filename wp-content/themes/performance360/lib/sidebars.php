@@ -11,7 +11,7 @@ function _themename_sidebar_widgets(){
             'before_title' => '<h5 class="c-sidebar-widget__title u-margin-bottom-10"',
             'after-title' => '</h5>' 
             
-        );
+        )
     );
 }
 
