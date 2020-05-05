@@ -15,6 +15,6 @@ function _themename_sidebar_widgets(){
     );
 }
 
-add_action('widget_init', '_themename_sidebar_widgets');
+add_action('widgets_init', '_themename_sidebar_widgets');
 
 ?>
