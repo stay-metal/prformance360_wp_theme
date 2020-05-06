@@ -47,14 +47,14 @@ if (!function_exists('_themename_time_format')) {
   }
 }
 
-if (!function_exists('_themename_footer_widget_column_count')) {
-    function _themename_footer_widget_column_count() {
-      $sidebars = count (array_filter(wp_get_sidebars_widgets(), function($v, $k) {
+if (!function_exists('_themename_footer_widget_sidebar')) {
+    function _themename_footer_widget_sidebars() {
+      $sidebars = array_filter(wp_get_sidebars_widgets(), function($v, $k) {
         if (!empty($v)) return preg_match('/footer-sidebar-/',  $k);
         // $return = preg_match('/footer-sidebar-/', $element);
             return !empty($element);
-    }, ARRAY_FILTER_USE_BOTH) );
-    return ++$sidebars;
+    }, ARRAY_FILTER_USE_BOTH);
+    return array_keys($sidebars);
     }
   }
 
