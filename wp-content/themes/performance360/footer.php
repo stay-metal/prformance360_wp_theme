@@ -1,3 +1,4 @@
+</div>
 <footer>
     <div class="c-footer">
         <div class="o-container">
