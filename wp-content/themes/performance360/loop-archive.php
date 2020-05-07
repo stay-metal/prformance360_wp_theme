@@ -4,6 +4,7 @@ $query = new WP_Query( [ 'category_name' => 'aciform' ] );
 <?php if ( have_posts() ) { ?>
     <?php while ( $query->have_posts() ) { ?>
         <?php $query->the_post(); ?>
+        <article <?php post_class( 'c-post -u-margin-bottom-20' ); ?>>
         <?php _themename_post_meta(); ?>
         <h2>
             <a href="<?php the_permalink(); ?>" title = "<?php the_title_attribute(); ?>" ><?php the_title(); ?></a>
@@ -11,6 +12,7 @@ $query = new WP_Query( [ 'category_name' => 'aciform' ] );
         <div>
             <?php the_excerpt() ?>
         </div>
+        </article>
     <?php } ?> 
     <?php the_posts_pagination(); ?>
 <?php } else { ?>
