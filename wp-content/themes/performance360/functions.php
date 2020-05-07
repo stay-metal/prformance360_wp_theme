@@ -3,6 +3,7 @@ require_once ('lib/enqueue_assets.php');
 require_once ('lib/helpers.php');
 require_once ('lib/sidebars.php');
 require_once ('lib/theme_support.php');
+require_once ('lib/navigation.php');
  
 
 add_action( "_themename_before_loop_start", "_themename_show_big_post", 1, 1);

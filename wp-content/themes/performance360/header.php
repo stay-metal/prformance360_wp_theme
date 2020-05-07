@@ -10,7 +10,7 @@
             <div class="c-header">
                 <div class="o-container">
                     <div class="o-row u-flex u-flex-wrap-reverse">
-                        <div class="o-row__column o-row__column--span-12 o-row__column--span-8@medium u-flex u-align-justify">    
+                        <div class="o-row__column o-row__column--span-12 o-row__column--span-8@medium u-flex">    
                         <div class= "c-header__mobile-menu">
                                 MOBMENU
                             </div>  
@@ -27,11 +27,12 @@
                         </div>
                         <div class="o-row__column o-row__column--span-12 o-row__column--span-4@medium">
                             <div class="c-header__menu">
-                                RIGHT MENU
+                            <?php get_template_part( 'template-parts/navigation/top_navigation' ); ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>      
     </header>
+    <?php get_template_part( 'template-parts/navigation/main_navigation' ); ?>
     <div id="content">
