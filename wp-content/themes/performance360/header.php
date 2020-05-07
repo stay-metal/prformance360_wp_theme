@@ -21,19 +21,17 @@
                                 SOC LINKS
                             </div>
                             <div class="c-header__search-mobile">
-                                MOB SEARCH
+                                <?php get_template_part( 'template-parts/mob_searchform' ); ?>
+                            <?php// get_search_form(true) ?>
                             </div>
                         </div>
                         <div class="o-row__column o-row__column--span-12 o-row__column--span-4@medium">
                             <div class="c-header__menu">
                                 RIGHT MENU
                             </div>
-                        <!-- <div class="c-hedaer__search-mobile"> -->
-                        <?php // get_search_form(true) ?>
-                        <!-- </div> -->
                         </div>
                     </div>
                 </div>
-            </div>     
+            </div>      
     </header>
     <div id="content">
