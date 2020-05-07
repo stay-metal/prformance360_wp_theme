@@ -1,7 +1,6 @@
 <footer>
 <?php 
 $column_layout = 12/( count(_themename_footer_widget_sidebars()) + 1);
-// echo $column_count; 
 ?>
     <div class="c-footer">
         <div class="o-container">
