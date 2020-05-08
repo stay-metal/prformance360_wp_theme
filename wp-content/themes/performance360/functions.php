@@ -7,6 +7,14 @@ require_once ('lib/navigation.php');
 require_once ('lib/customize.php');
  
 
+add_action( 'pre_get_posts', 'change_posts_per_page' );
+
+function change_posts_per_page( $query ) {
+
+    $query->set( 'posts_per_page', 9 );
+    return;
+}
+
 add_action( "_themename_before_loop_start", "_themename_show_big_post", 1, 1);
 add_action( "_themename_before_loop_start", "_themename_show_medium_posts", 2);
 
