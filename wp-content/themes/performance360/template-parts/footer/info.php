@@ -4,11 +4,18 @@
             <div class="o-row__column o-row__column--span-12">
             Logo (from customizer)
             </div>
-            <div class="o-row__column o-row__column--span-12">
-            <?php get_template_part( 'template-parts/navigation/soc_navigation' ); ?>
+            <div class="o-row__column o-row__column--span-12 u-flex">
+            <span class="c-footer__soc">Читать в соцсетях: </span><?php get_template_part( 'template-parts/navigation/soc_navigation' ); ?>
             </div>        
             <div class="o-row__column o-row__column--span-12">
-            Redaction Soc (from customizer)
+                <div class="o-row">
+                    <div class="o-row__column o-row__column--span-12">   
+                        <div class="c-footer__redation-title"> Редакция: </div>
+                    </div>
+                    <div class="o-row__column o-row__column--span-12">           
+                        <div class="c-footer__redation-email"> info@performance360.ru </div>
+                    </div>
+                </div>  
             </div> 
         </div>
 

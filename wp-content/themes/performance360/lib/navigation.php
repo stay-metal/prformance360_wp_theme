@@ -31,7 +31,7 @@ if (!function_exists('_themename_soc_icon')) {
             if(in_array($item->classes[0], $fa_classes) && preg_match('/fa-/',$item->classes[1])){
                     $title = '<i class="'.esc_attr($item->classes[0]).' '.esc_attr($item->classes[1]).'"></i>';
                 } else {
-                    $title = '<i class="fas fa-hashtag"></i>';
+                    $title = '';
                 }
         }
         return $title;
