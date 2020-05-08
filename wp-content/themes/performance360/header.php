@@ -18,7 +18,7 @@
                                 <a class="c-header__blogname" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html(bloginfo('name')); ?></a>
                             </div>
                             <div class= "c-header__soc">
-                                SOC LINKS
+                            <?php get_template_part( 'template-parts/navigation/soc_navigation' ); ?>
                             </div>
                             <div class="c-header__search-mobile">
                                 <?php get_template_part( 'template-parts/header/mob_searchform' ); ?>                  
