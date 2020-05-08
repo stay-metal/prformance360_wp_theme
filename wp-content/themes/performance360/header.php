@@ -6,7 +6,7 @@
     <?php wp_head();?>
 </head>
 <body <?php body_class(); ?>>
-    <header role="banner" class="u-margin-bottom-40">  
+    <header role="banner">  
             <div class="c-header">
                 <div class="o-container">
                     <div class="o-row u-flex u-flex-wrap-reverse">
@@ -21,8 +21,7 @@
                                 SOC LINKS
                             </div>
                             <div class="c-header__search-mobile">
-                                <?php get_template_part( 'template-parts/mob_searchform' ); ?>
-                            <?php// get_search_form(true) ?>
+                                <?php get_template_part( 'template-parts/mob_searchform' ); ?>                  
                             </div>
                         </div>
                         <div class="o-row__column o-row__column--span-12 o-row__column--span-4@medium">
