@@ -1,0 +1,6 @@
+@each $name, $code in $colors {
+    .u-bg-color-#{$name} {
+        background-color: $code;
+    }
+
+  }
