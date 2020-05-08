@@ -43,6 +43,7 @@ $align: (
     }
 }
 
+
 @each $class, $value in $align {
     .u-align-self-#{$class} {
         align-self: #{$value};
