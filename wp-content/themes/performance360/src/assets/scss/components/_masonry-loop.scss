@@ -1,0 +1,10 @@
+.o-container_masonry {
+    column-count: 2;
+    column-gap: 1em;
+        .o-row_column-masonry {
+            display: inline-block;
+            width: 100%;
+        }
+      
+    }
+

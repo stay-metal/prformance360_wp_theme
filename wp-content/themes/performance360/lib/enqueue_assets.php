@@ -21,4 +21,23 @@ function _themename_customize_preview() {
 }
 
 add_action( 'customize_preview_init', '_themename_customize_preview' );
+
+function _themename_load_more_scripts() {
+
+    global $wp_query; 
+    
+    wp_enqueue_script( '_themename-load-more', get_template_directory_uri() . '/dist/assets/js/load-more.js', array('jquery'), '1.0.0' , true );
+ 
+
+	wp_localize_script( '_themename-load-more', 'performance_loadmore_params', array(
+		'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php',
+		'posts' => json_encode( $wp_query->query_vars ),
+		'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
+        'max_page' => $wp_query->max_num_pages,
+        'is_home' => $wp_query->is_home
+	) );
+}
+ 
+add_action( 'wp_enqueue_scripts', '_themename_load_more_scripts' );
+
 ?>
