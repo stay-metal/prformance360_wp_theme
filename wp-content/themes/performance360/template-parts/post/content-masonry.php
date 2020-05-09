@@ -1,5 +1,5 @@
 <div class="o-row__column--span-6 o-row_column-masonry">
-    <article <?php post_class( 'c-post c-post_masonry u-margin-bottom-20' ); ?>>
+    <article <?php post_class( 'c-post c-post_masonry u-margin-bottom-10' ); ?>>
             <?php _themename_post_meta(); ?>          
             <h2>
                 <a href="<?php the_permalink(); ?>" title = "<?php the_title_attribute(); ?>" ><?php the_title(); ?></a>

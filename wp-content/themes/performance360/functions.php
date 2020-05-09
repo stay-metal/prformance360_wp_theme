@@ -85,7 +85,7 @@ if (!function_exists('_themename_footer_widget_sidebar')) {
 
           while( have_posts() ): the_post();
       
-            get_template_part( 'template-parts/post/content' );
+            get_template_part( 'template-parts/post/content', 'masonry' );
 
           endwhile;
       

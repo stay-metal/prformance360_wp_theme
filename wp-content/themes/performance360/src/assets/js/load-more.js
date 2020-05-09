@@ -1,3 +1,5 @@
+import { runMasonry } from "./components/masonry";
+
 jQuery(function($){
 	$('.c-load-more__button').click(function(){
  
@@ -14,11 +16,12 @@ jQuery(function($){
 			data : data,
 			type : 'POST',
 			beforeSend : function ( xhr ) {
-				button.text('Loading...'); 
+				button.text('Загрузка...'); 
 			},
 			success : function( data ){
 				if( data ) { 
-					button.text( 'Загрузить еще' ).prev().before(data);
+					button.text( 'Загрузить еще' );
+					$('.o-container_masonry').append(data);
 					performance_loadmore_params.current_page++;
  
 					if ( performance_loadmore_params.current_page == performance_loadmore_params.max_page ) 
@@ -27,6 +30,7 @@ jQuery(function($){
 				} else {
 					button.remove(); 
 				}
+				runMasonry();
 			}
 		});
 	});
