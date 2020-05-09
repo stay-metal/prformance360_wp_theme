@@ -34,6 +34,20 @@
             'label' => esc_html('Email редакции'),
             'section' => '_themename_footer_options'
         ));
+        //Footer logo
+        $wp_customize->add_setting('_themename_footer_logo', array(
+            'default' => '',
+        ));
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                '_themename_footer_logo',
+                array(
+                    'label'      => esc_html('Логотип в footer'),
+                    'section' => '_themename_footer_options'
+                )
+            )
+        );
         
     }
 

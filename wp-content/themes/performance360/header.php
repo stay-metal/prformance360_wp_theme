@@ -15,7 +15,11 @@
                                 MOBMENU
                             </div>  
                             <div class="c-header__logo">
+                                <?php if(has_custom_logo()) { 
+                                    the_custom_logo();
+                                    } else { ?>
                                 <a class="c-header__blogname" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html(bloginfo('name')); ?></a>
+                                    <?php } ?>
                             </div>
                             <div class= "c-header__soc">
                             <?php get_template_part( 'template-parts/navigation/soc_navigation' ); ?>
