@@ -7,7 +7,7 @@ export const runMasonry = () => {
   const msnry = new Masonry( elem, {
     // options
     itemSelector: '.o-row_column-masonry',
-    gutter: 10,
+    gutter: 19,
     percentPosition: true
   });
 });

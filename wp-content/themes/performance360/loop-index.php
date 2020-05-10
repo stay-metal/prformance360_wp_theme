@@ -1,9 +1,8 @@
-
-<?php 
-if ( have_posts() ) { ?>
 <?php if ( is_home() ) { ?> 
     <?php do_action( '_themename_before_loop_start'); ?>
 <?php }?>
+<?php 
+if ( have_posts() ) { ?>
 
     <div class="o-container o-container_masonry">
         <?php while (have_posts() ) { ?>
