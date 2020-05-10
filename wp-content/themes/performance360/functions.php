@@ -30,19 +30,49 @@ add_action( "_themename_before_loop_start", "_themename_show_medium_posts", 2);
 if (!function_exists('_themename_show_big_post')) {
   function _themename_show_big_post() {
   $big_post_field = get_post_meta( get_option( 'page_for_posts' ));
-    if (isset($big_post_field['__themename_main_bg_post'])) {
-      $big_post = get_post($big_post_field['__themename_main_bg_post']);
-      // var_dump($big_post);
-      ?>
-    <?php get_template_part( 'template-parts/post/content', 'big_post'); ?>
-    <?php 
+  if (isset($big_post_field['__themename_main_bg_post'][0])) {
+    $big_post_query = new WP_Query( array(
+      'p'         => $big_post_field['__themename_main_bg_post'][0], 
+      'post_type' => 'any'));
+      if( $big_post_query -> have_posts() ) {
+        while( $big_post_query -> have_posts() ): $big_post_query -> the_post();
+          get_template_part( 'template-parts/post/content', 'big_post'); 
+        endwhile;      
+      }
+      wp_reset_postdata();
     }
   }
 }
 
 if (!function_exists('_themename_show_medium_posts')) {
   function _themename_show_medium_posts() {
-  // echo 'MEDIUM POST PLACE';
+    $md_post_field = get_post_meta( get_option( 'page_for_posts' ));
+    $md_posts = array();
+    if (isset($md_post_field['__themename_middle_one_post'][0])){
+      $md_posts[] = $md_post_field['__themename_middle_one_post'][0];
+    }
+    if (isset($md_post_field['__themename_middle_two_post'][0])){
+      $md_posts[] = $md_post_field['__themename_middle_two_post'][0];
+    }
+    
+    if ( !empty($md_posts) ) {
+      $md_post_query = new WP_Query( array(
+        'post__in'         => $md_posts, 
+        'post_type' => 'post'));
+        echo '<div class="o-row">';
+        if( $md_post_query -> have_posts() ) {
+          while( $md_post_query -> have_posts() ): $md_post_query -> the_post();
+          if (count($md_posts>1)) {
+            get_template_part( 'template-parts/post/content', 'md_post'); 
+          } else {
+            get_template_part( 'template-parts/post/content', 'big_post'); 
+          }
+          endwhile;      
+        }
+         wp_reset_postdata();
+        echo '</div>';
+     }    
+
   }
 }
 
