@@ -5,6 +5,7 @@ require_once ('lib/sidebars.php');
 require_once ('lib/theme_support.php');
 require_once ('lib/navigation.php');
 require_once ('lib/customize.php');
+require_once ('lib/metaboxes.php');
  
 
 add_action( 'pre_get_posts', 'change_posts_per_page' );
@@ -28,13 +29,20 @@ add_action( "_themename_before_loop_start", "_themename_show_medium_posts", 2);
 // }
 if (!function_exists('_themename_show_big_post')) {
   function _themename_show_big_post() {
-  echo 'BIG POST PLACE';
+  $big_post_field = get_post_meta( get_option( 'page_for_posts' ));
+    if (isset($big_post_field['__themename_main_bg_post'])) {
+      $big_post = get_post($big_post_field['__themename_main_bg_post']);
+      // var_dump($big_post);
+      ?>
+    <?php get_template_part( 'template-parts/post/content', 'big_post'); ?>
+    <?php 
+    }
   }
 }
 
 if (!function_exists('_themename_show_medium_posts')) {
   function _themename_show_medium_posts() {
-  echo 'MEDIUM POST PLACE';
+  // echo 'MEDIUM POST PLACE';
   }
 }
 
@@ -69,10 +77,11 @@ if (!function_exists('_themename_footer_widget_sidebar')) {
     }
   }
 
+
   // Load more 
   function _themename_loadmore_ajax_handler(){
     global $wp_query;
-
+    
     $is_home = json_decode( stripslashes( $_POST['is_home'] ), true );
     $args = json_decode( stripslashes( $_POST['query'] ), true );
     $args['paged'] = $_POST['page'] + 1;
