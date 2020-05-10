@@ -1,7 +1,12 @@
-<?php if ( have_posts() ) { ?>
+
+<?php 
+if ( have_posts() ) { ?>
+<?php if ( is_home() ) { ?> 
     <?php do_action( '_themename_before_loop_start'); ?>
+<?php }?>
+
     <div class="o-container o-container_masonry">
-        <?php while ( have_posts() ) { ?>
+        <?php while (have_posts() ) { ?>
             <?php the_post(); ?>
             <?php get_template_part( 'template-parts/post/content', 'masonry'); ?>
         <?php } ?> 

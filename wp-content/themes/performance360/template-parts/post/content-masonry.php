@@ -1,4 +1,4 @@
-<div class="o-row__column--span-6 o-row_column-masonry">
+<div class="o-row__column--span-6 o-row_column-masonry o-row__column--span-12@small o-row__column--span-6@mobile o-row__column--span-6@medium">
     <article <?php post_class( 'c-post c-post_masonry u-margin-bottom-10' ); ?>>
             <?php _themename_post_meta(); ?>          
             <h2>
