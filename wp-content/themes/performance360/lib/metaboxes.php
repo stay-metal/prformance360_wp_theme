@@ -27,7 +27,9 @@ $main_post = get_post_meta($this_post->ID, '__themename_main_bg_post', true);
         <?php
         $args = array( 'numberposts' => -1);
         $posts = get_posts($args);
-        foreach( $posts as $post ) : setup_postdata($post); ?>
+        ?>
+        <option value="" <?php if ($main_post == "" || !isset($main_post)) echo 'selected="selected"'; ?>>Не выбрано</option>
+       <?php foreach( $posts as $post ) : setup_postdata($post); ?>
             <option value="<?php echo $post->ID; ?>" <?php if ( $post->ID == $main_post) echo 'selected="selected"'; ?>><?php the_title(); ?></option>
         <?php endforeach; ?>
     </select>
@@ -39,8 +41,9 @@ $m_one_post = get_post_meta($this_post->ID, '__themename_middle_one_post', true)
     <select name="_themename_m_one_post_id" id="_themename_m_one_post_id">
         <?php
         $args = array( 'numberposts' => -1);
-        $posts = get_posts($args);
-        foreach( $posts as $post ) : setup_postdata($post); ?>
+        $posts = get_posts($args); ?>
+        <option value="" <?php if ($m_one_post == "" || !isset($m_one_post)) echo 'selected="selected"'; ?>>Не выбрано</option>
+       <?php foreach( $posts as $post ) : setup_postdata($post); ?>
             <option value="<?php echo $post->ID; ?>" <?php if ( $post->ID == $m_one_post) echo 'selected="selected"'; ?>><?php the_title(); ?></option>
         <?php endforeach; ?>
     </select>
@@ -52,8 +55,9 @@ $m_two_post = get_post_meta($this_post->ID, '__themename_middle_two_post', true)
     <select name="_themename_m_two_post_id" id="_themename_m_two_post_id">
         <?php
         $args = array( 'numberposts' => -1);
-        $posts = get_posts($args);
-        foreach( $posts as $post ) : setup_postdata($post); ?>
+        $posts = get_posts($args); ?>
+        <option value="" <?php if ($m_two_post == "" || !isset($m_two_post)) echo 'selected="selected"'; ?>>Не выбрано</option>
+        <?php foreach( $posts as $post ) : setup_postdata($post); ?>
             <option value="<?php echo $post->ID; ?>" <?php if ( $post->ID == $m_two_post) echo 'selected="selected"'; ?>><?php the_title(); ?></option>
         <?php endforeach; ?>
     </select>   
