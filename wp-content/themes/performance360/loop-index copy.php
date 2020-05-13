@@ -1,30 +1,25 @@
-<?php if ( have_posts() ) { ?>    
+<?php if ( is_home() ) { ?> 
     <?php do_action( '_themename_before_loop_start'); ?>
-    <?php $post_number = 1; ?>
-        <div class="o-row">
-             <?php while ( have_posts() ) { ?>
-                <?php the_post(); ?>
-                    <div class="o-row__column o-row__column--span-12 o-row__column--span-6@medium">  
-                        <?php get_template_part( 'template-parts/post/content'); ?>
-                    </div>
-        <?php if ( $post_number % 2 != 0 && $post_number == $wp_query->post_count) { ?>
-        </div> 
-         <?php } ?>
-                     <?php if ( $post_number % 2 == 0 ) { ?>
-                         <?php if ($post_number != $wp_query->post_count ) { ?>               
-                    </div>
-                    <div class="o-row">   
-         <?php } else if ($post_number == $wp_query->post_count) { ?>
-        </div>   
-        <?php }?>
-                    <?php }?>
-        <?php $post_number++ ?>
-            <?php } ?>
-<?php // LAZY LOAD
-if (  $wp_query->max_num_pages > 1 )
-echo '<div class="c-load-more__button">Загрузить еще</div>';
-?>
-<?php the_posts_pagination(); ?>
-<?php } else { ?>
-       <?php get_template_part( 'template-parts/post/content-none'); ?>
-<?php } ?>
+<?php }?>
+<?php 
+    $big_post_field = get_post_meta( get_option( 'page_for_posts' ));
+    $md_post_field = get_post_meta( get_option( 'page_for_posts' ));
+    $the_query = new WP_Query( array( 'post__not_in' => array($md_post_field['__themename_middle_one_post'][0],$md_post_field['__themename_middle_two_post'][0],$big_post_field['__themename_main_bg_post'][0] ) ) );
+    
+if ( $the_query->have_posts() ) { ?>
+
+    <div class="o-container o-container_masonry u-margin-left-0 u-margin-right-0  u-padding-left-0 u-padding-right-0" >
+
+        <?php while ($the_query->have_posts() ) { ?>
+            <?php $the_query->the_post(); ?>
+            <?php get_template_part( 'template-parts/post/content', 'masonry'); ?>
+        <?php } ?> 
+    </div>
+    <?php // LAZY LOAD
+        if (  $wp_query->max_num_pages > 1 )
+        echo '<button class="c-load-more__button">Загрузить еще</button>';
+    ?>       
+        <?php// the_posts_pagination(); ?>
+    <?php } else { ?>
+        <?php get_template_part( 'template-parts/post/content-none'); ?>
+    <?php } ?>

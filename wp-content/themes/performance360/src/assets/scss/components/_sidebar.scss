@@ -1,0 +1,23 @@
+.c-sidebar-widget ul li a{
+    color: $primary-black!important;
+}
+@include breakpoint('small') {
+}
+@include breakpoint('mobile') {
+    .c-sidebar-widget ul li a{
+        font-size: rem-calc(14)!important;
+
+    }
+}
+@include breakpoint('medium') {
+    .c-sidebar-widget ul li a{
+        font-size: rem-calc(16)!important;
+
+    }
+}
+@include breakpoint('large') {
+    .c-sidebar-widget ul li a{
+        font-size: rem-calc(17)!important;
+
+    }
+}

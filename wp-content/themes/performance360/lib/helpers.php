@@ -1,20 +1,19 @@
 <?php
 
-function _themename_post_meta() {
-    // $time_diff = human_time_diff( get_post_time('U'), current_time('timestamp') );
-    echo '<div>';
-    the_tags();
-    echo  '</div>';
-    echo  '<div>';
-    _themename_post_time();
-    echo '</div>';                    
-}
+function _themename_post_meta() { ?>
+    <div class="o-row c-post__meta" >
+        <?php if(has_tag()) { ?>
+        <div class="c-post__tags u-align-middle">
+            <?php the_tags(); ?>
+        </div>
+        <?php } ?>
+        <div class="c-post__time u-flex u-align-middle">
+            <?php  _themename_post_time(); ?>
+        </div>
+    </div>               
+<?php } ?>
+<?php
 
-function _themename_post_time() {
-    // $time_diff = human_time_diff( get_post_time('U'), current_time('timestamp') );
-    echo  '<time>' . the_time() . '</time>';
-    
-}
 
 
 

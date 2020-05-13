@@ -30,7 +30,7 @@ add_action( "_themename_before_loop_start", "_themename_show_medium_posts", 2);
 if (!function_exists('_themename_show_big_post')) {
   function _themename_show_big_post() {
   $big_post_field = get_post_meta( get_option( 'page_for_posts' ));
-  if (isset($big_post_field['__themename_main_bg_post'][0])) {
+  if (isset($big_post_field['__themename_main_bg_post']) && $big_post_field['__themename_main_bg_post'][0] != '') {
     $big_post_query = new WP_Query( array(
       'p'         => $big_post_field['__themename_main_bg_post'][0], 
       'post_type' => 'any'));
@@ -39,7 +39,6 @@ if (!function_exists('_themename_show_big_post')) {
           get_template_part( 'template-parts/post/content', 'big_post'); 
         endwhile;      
       }
-      wp_reset_postdata();
     }
   }
 }
@@ -48,13 +47,12 @@ if (!function_exists('_themename_show_medium_posts')) {
   function _themename_show_medium_posts() {
     $md_post_field = get_post_meta( get_option( 'page_for_posts' ));
     $md_posts = array();
-    if (isset($md_post_field['__themename_middle_one_post'][0])){
+    if (isset($md_post_field['__themename_middle_one_post'][0]) && $md_post_field['__themename_middle_one_post'][0]!= ''){
       $md_posts[] = $md_post_field['__themename_middle_one_post'][0];
     }
-    if (isset($md_post_field['__themename_middle_two_post'][0])){
+    if (isset($md_post_field['__themename_middle_two_post'][0]) && $md_post_field['__themename_middle_two_post'][0] != ''){
       $md_posts[] = $md_post_field['__themename_middle_two_post'][0];
     }
-    
     if ( !empty($md_posts) ) {
       $md_post_query = new WP_Query( array(
         'post__in'         => $md_posts, 
@@ -62,21 +60,26 @@ if (!function_exists('_themename_show_medium_posts')) {
         echo '<div class="o-row">';
         if( $md_post_query -> have_posts() ) {
           while( $md_post_query -> have_posts() ): $md_post_query -> the_post();
-          if (count($md_posts>1)) {
+          if (count($md_posts)>1) {
             get_template_part( 'template-parts/post/content', 'md_post'); 
           } else {
             get_template_part( 'template-parts/post/content', 'big_post'); 
           }
           endwhile;      
         }
-         wp_reset_postdata();
         echo '</div>';
      }    
 
   }
 }
 
-add_filter('the_time', '_themename_time_format');
+if (!function_exists('_themename_post_time')) {
+function _themename_post_time() {
+  add_filter('the_time', '_themename_time_format');
+  return  the_time();
+  
+}
+}
 
 if (!function_exists('_themename_time_format')) {
   function _themename_time_format() {
@@ -89,8 +92,10 @@ if (!function_exists('_themename_time_format')) {
     if($is_today || $is_yesterday) {
       $mytimestamp = mb_strtolower ( ($is_yesterday === true ) ? 'вчера' : 'сегодня' );
       $mytimestamp.=  get_post_time(' в H:i');
+      $mytimestamp =  '<time>' . $mytimestamp .'</time>';
     } else {
       $mytimestamp = mb_strtolower ( $date . get_post_time('H:i') );
+      $mytimestamp =  '<time>' . $mytimestamp .'</time>';
     }
     return $mytimestamp;
   }
@@ -148,5 +153,81 @@ if (!function_exists('_themename_footer_widget_sidebar')) {
   }
    
   add_action('wp_ajax_loadmore', '_themename_loadmore_ajax_handler');
+  add_action('wp_ajax_nopriv_loadmore', '_themename_loadmore_ajax_handler');
+
+  function _themename_single_meta($id, $key, $default) {
+    $value = get_post_meta($id, $key, true);
+    if(!$value && $default){
+      return $default;
+    }
+    return $value;
+  }
+
+// THE EXERPT
+if (!function_exists('_themename_excerpt_length')) {
+  function _themename_excerpt_length($length) {
+    return 0;
+    }
+  }
+if (!function_exists('_themename_excerpt_more')) {
+  function _themename_excerpt_more($more) {
+    return '';
+    }
+  }
+if (!function_exists('_themename_the_excerpt')) {
+  // function _themename_the_excerpt($post_excerpt) {
+  //       return 'filtred';
+  //       }
+  }
+      
+  add_filter('excerpt_more', '_themename_excerpt_more');
+  add_filter('excerpt_length', '_themename_excerpt_length');
+  // add_action( 'the_excerpt', '_themename_the_excerpt' );
+
+  add_filter( 'the_tags', '_themename_tags_filter', 10, 5 );
+  function _themename_tags_filter( $tag_list, $before, $sep, $after, $id ){
+    global $post;
+    $tags = get_terms( array(
+      'taxonomy'      => array( 'post_tag' ), 
+      'object_ids'    =>  $post->ID,
+      // 'count'         => 2,
+      'orderby'       => 'id', 
+      'order'         => 'ASC',
+      // 'hide_empty'    => true, 
+      // 'include'       => array(),
+      // 'exclude'       => array(), 
+      // 'exclude_tree'  => array(), 
+      'number'        => 2, 
+      // 'fields'        => 'all', 
+      // 'slug'          => '', 
+      // 'parent'         => '',
+      // 'hierarchical'  => true, 
+      // 'child_of'      => 0, 
+      // 'get'           => '', 
+      // 'name__like'    => '',
+      // 'pad_counts'    => false, 
+      // 'offset'        => '', 
+      // 'search'        => '', 
+      // 'cache_domain'  => 'core',
+      // 'name'          => '',    
+      // 'childless'     => false, 
+      // 'update_term_meta_cache' => true, // подгружать метаданные в кэш
+      // 'meta_query'    => '',
+    ) );
+      $tag_list='';
+      foreach ($tags as $tag) {
+        $tag_list.='<a href="'.get_tag_link($tag->term_id).'" class="c-post__tags-link">'.$tag->name.'</a> ';
+      }
+    // var_dump($tags);  
+    // die;
+    return $tag_list;
+  }
+  
+  //IMAGE SIZES
+
+  function _themename_thumbs_sizes() {
+    add_image_size( '_themename-main-loop-thumb', 300, 150, false );
+    }
+    add_action( 'after_setup_theme', '_themename_thumbs_sizes' );
 
 ?>
