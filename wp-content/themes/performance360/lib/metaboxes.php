@@ -1,5 +1,4 @@
 <?php 
-
 function _themename_add_meta_box() {
     global $post;
    
@@ -12,7 +11,6 @@ function _themename_add_meta_box() {
     'default'
     );
 }
-
 }
 
 add_action( 'add_meta_boxes', '_themename_add_meta_box' );
@@ -61,11 +59,9 @@ $m_two_post = get_post_meta($this_post->ID, '__themename_middle_two_post', true)
             <option value="<?php echo $post->ID; ?>" <?php if ( $post->ID == $m_two_post) echo 'selected="selected"'; ?>><?php the_title(); ?></option>
         <?php endforeach; ?>
     </select>   
-
     <?php
     }
     ?>
-
 <?php function _themename_save_post_metabox($post_id, $post) {
     if( isset ( $_POST['_themename_main_post_id'] ) ) {
         update_post_meta( $post_id, 
@@ -86,7 +82,5 @@ $m_two_post = get_post_meta($this_post->ID, '__themename_middle_two_post', true)
         );    
     }
 }
-
 ?>
-
 <?php add_action( 'save_post', '_themename_save_post_metabox', 10, 2 ); ?>
