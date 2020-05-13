@@ -1,0 +1,47 @@
+.c-load-more__button{
+    // padding:  rem-calc(8 23 8 23);
+    padding:  0;
+    width: rem-calc(169);
+    height: rem-calc(38);
+    font-size: rem-calc(18);
+    color: $primary-black;
+    background-color: $primary-white;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 130%;
+    border-radius: rem-calc(5);
+    border: 1px solid $primary-pink;
+    &:hover, &:focus, &:active{
+        background: $primary-white;
+        border: 1px solid $primary-pink;
+        box-sizing: border-box;
+    }
+}
+
+@include breakpoint('small') {
+    .c-load-more__button { 
+        margin-top: rem-calc(23);
+        margin-bottom: rem-calc(30);
+    }
+}
+@include breakpoint('mobile') {
+    .c-load-more__button { 
+        margin-top: rem-calc(30);
+        margin-bottom: rem-calc(0);
+    }
+
+}
+@include breakpoint('medium') {
+    .c-load-more__button { 
+        margin-top: rem-calc(30);
+        margin-bottom: rem-calc(0);
+    }
+
+}
+@include breakpoint('large') {
+    .c-load-more__button { 
+        margin-top: rem-calc(30);
+        margin-bottom: rem-calc(0);
+    }
+
+}

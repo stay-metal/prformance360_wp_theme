@@ -159,7 +159,7 @@
     .c-main-navigation { 
         display:none;
         &__search-form {
-            display:none!important;
+            display:none;
 
         }
 
@@ -168,9 +168,9 @@
 
 @include breakpoint('mobile') {
     .c-main-navigation { 
-        display:block;
+        display:flex;
         &__search-form {
-            display:none!important;
+            display:none;
 
         }
 
@@ -180,7 +180,7 @@
 @include breakpoint('medium') {
     .c-main-navigation { 
         &__search-form {
-            display:block;
+            display:flex;
 
             .c-search-form{
             &__field{
@@ -196,7 +196,7 @@
 @include breakpoint('large') {
     .c-main-navigation { 
         &__search-form {
-            display:block;
+            display:flex;
             .c-search-form{
                 &__field{
                     padding-left: rem-calc(43);

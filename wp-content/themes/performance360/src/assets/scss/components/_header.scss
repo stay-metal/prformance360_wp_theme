@@ -60,7 +60,7 @@
             }
         }
     body {
-        background-color: red;
+        // background-color: red;
     }
 }
 @include breakpoint('mobile') {
@@ -96,7 +96,7 @@
             }    
         }
     body {
-        background-color: purple;
+        // background-color: purple;
     }
 }
 @include breakpoint('medium') {
@@ -125,7 +125,7 @@
             }                
         }
     body {
-        background-color: green;
+        // background-color: green;
     }
 }
 @include breakpoint('large') {
@@ -146,7 +146,7 @@
             }                
         }
     body {
-        background-color: blue;
+        background-color: #E5E5E5;
     }
 }
 

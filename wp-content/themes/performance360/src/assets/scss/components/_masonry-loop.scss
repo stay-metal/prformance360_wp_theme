@@ -8,3 +8,24 @@
       
 //     }
 
+
+@include breakpoint('small') {
+    .o-row_column-masonry{
+        width: calc(100%);
+    }
+}
+@include breakpoint('mobile') {
+    .o-row_column-masonry{
+        width: calc(100%);
+    } 
+} 
+@include breakpoint('medium') {
+    .o-row_column-masonry{
+        width: calc(51.6% - 1.25rem);
+    }
+}
+@include breakpoint('large') {
+    .o-row_column-masonry{
+        width: calc(51.3% - 1.25rem);
+    }
+ }

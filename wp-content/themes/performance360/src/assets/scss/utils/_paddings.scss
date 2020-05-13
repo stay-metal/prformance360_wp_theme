@@ -1,0 +1,38 @@
+$i: 0;
+$max: 40;
+@while $i <= $max {
+    .u-padding-top-#{$i} {
+        padding-top: rem-calc($i) !important;
+    }
+    .u-padding-bottom-#{$i} {
+        padding-bottom: rem-calc($i) !important;
+    }
+    .u-padding-left-#{$i} {
+        padding-left: rem-calc($i) !important;
+    }
+    .u-padding-right-#{$i} {
+        padding-right: rem-calc($i) !important;
+    }
+    $i: $i + 5;
+}
+
+@each $size, $width in $breakpoints {
+    @include breakpoint($size) {
+        $i: 0;
+        @while $i <= $max {
+            .u-padding-top-#{$i}\@#{$size} {
+                padding-top: rem-calc($i) !important;
+            }
+            .u-padding-bottom-#{$i}\@#{$size} {
+                padding-bottom: rem-calc($i) !important;
+            }
+            .u-padding-left-#{$i}\@#{$size} {
+                padding-left: rem-calc($i) !important;
+            }
+            .u-padding-right-#{$i}\@#{$size} {
+                padding-right: rem-calc($i) !important;
+            }
+            $i: $i + 5;
+        }
+    }
+}

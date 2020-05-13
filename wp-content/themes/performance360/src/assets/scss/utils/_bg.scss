@@ -1,0 +1,15 @@
+.u-bg-image {
+    background-size: cover;
+    background-position: center;
+    border-radius: inherit;
+    > *{
+        background-color: #ffffff00!important;
+    }
+}
+@each $name, $code in $colors {
+    .u-bg-color-#{$name} {
+        background-color: $code;
+    }
+
+  }
+

@@ -3,7 +3,7 @@
         <nav class="c-main-navigation">
             <?php wp_nav_menu(array('theme_location' => 'main-menu')); ?>
         </nav>
-        <div class="c-main-navigation__search-form u-flex u-align-middle">
+        <div class="c-main-navigation__search-form u-align-middle">
             <?php get_search_form(); ?>
         </div>
     </div>

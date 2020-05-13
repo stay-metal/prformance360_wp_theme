@@ -16,13 +16,9 @@ if ( $the_query->have_posts() ) { ?>
         <?php } ?> 
     </div>
     <?php // LAZY LOAD
-        if (  $wp_query->max_num_pages > 1 ) { ?>
-       <div class="row">
-         <div class="o-row__column o-row__column--span-12 u-align-center u-flex" > 
-            <button class="c-load-more__button">Загрузить еще</button>
-         </div>
-       <div>
-        <?php }?>       
+        if (  $wp_query->max_num_pages > 1 )
+        echo '<button class="c-load-more__button">Загрузить еще</button>';
+    ?>       
         <?php// the_posts_pagination(); ?>
     <?php } else { ?>
         <?php get_template_part( 'template-parts/post/content-none'); ?>

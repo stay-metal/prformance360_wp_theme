@@ -2,9 +2,7 @@
     <div class="c-post__inner">
         <header class="c-post__header">
 
-            <div class="c-post__meta">
             <?php _themename_post_meta(); ?>
-            </div>
 
             <h1 class="c-post__title">
                 <a href="<?php the_permalink(); ?>" title = "<?php the_title_attribute(); ?>" ><?php the_title(); ?></a>
@@ -30,7 +28,7 @@
                 if (has_category()) { 
                     get_the_category_list( ', ');
                 } ?>
-            <div class="c-post__tags">
+            <div class="c-post__tags-single">
             <?php 
                 if (has_tag()) { 
                 //    $tags_list = get_the_tag_list( '#',' #','');
