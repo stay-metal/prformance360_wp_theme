@@ -1,0 +1,31 @@
+.c-header__hamburger{
+    cursor: pointer;
+    display: inline-block;
+    padding: rem-calc(19 18 18 6);
+
+    &-navicon{
+        background: #20232d;
+        display: block;
+        height: 2px;
+        position: relative;
+        width: rem-calc(20);
+
+        &:before, &:after{
+            background: #20232d;
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            transition: all .2s ease-out;
+            width: 100%;
+        }
+
+        &:before{
+            top: 7px;
+        }
+
+        &:after{
+            top: -7px;
+        }
+    }
+}

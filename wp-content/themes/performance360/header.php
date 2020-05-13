@@ -10,9 +10,9 @@
             <div class="c-header">
                 <div class="o-container">
                     <div class="o-row u-flex u-flex-wrap-reverse">
-                        <div class="o-row__column o-row__column--span-12 o-row__column--span-8@medium u-flex">    
+                        <div class="o-row__column o-row__column--span-12 o-row__column--span-4@medium u-flex">    
                         <div class= "c-header__mobile-menu">
-                                MOBMENU
+                        <label class="c-header__hamburger"><span class="c-header__hamburger-navicon"></span></label>
                             </div>  
                             <div class="c-header__logo">
                                 <?php if(has_custom_logo()) { 
@@ -28,7 +28,7 @@
                                 <?php get_template_part( 'template-parts/header/mob_searchform' ); ?>                  
                             </div>
                         </div>
-                        <div class="o-row__column o-row__column--span-12 o-row__column--span-4@medium">
+                        <div class="o-row__column o-row__column--span-12 o-row__column--span-8@medium u-no-margin-medium c_header__menu_100width">
                             <div class="c-header__menu">
                             <?php get_template_part( 'template-parts/navigation/top_navigation' ); ?>
                             </div>

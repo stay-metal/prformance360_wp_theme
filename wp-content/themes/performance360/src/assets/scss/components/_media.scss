@@ -1,0 +1,16 @@
+// HEADER SOC FIX
+@media only screen and (min-width: 375px) and (max-width: 500px)  {
+
+        .menu-social-menu-container {
+            display: none;
+        }
+
+    }
+// HEADER TOP MENU
+@media only screen and (min-width: 375px) and (max-width: 526px)  {
+
+    .c-header__topnav .menu > .menu-item > a {
+        font-size: 0.7rem;
+    }
+
+}

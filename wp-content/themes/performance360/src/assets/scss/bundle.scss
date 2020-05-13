@@ -33,9 +33,12 @@ $fa-font-path: '../../../node_modules/@fortawesome/fontawesome-free/webfonts';
 @import './components/comment';
 @import './components/search-form';
 @import './components/nav-links';
-@import './components/main-navigation';
-@import './components/soc-navigation';
+@import './components/navigation/main-navigation';
+@import './components/navigation/soc-navigation';
+@import './components/navigation/top-navigation';
+@import './components/navigation/mobile_menu';
 @import './components/masonry-loop';
+@import './components/media';
 
 @import './utils/helpers';
 @import './utils/flex';
