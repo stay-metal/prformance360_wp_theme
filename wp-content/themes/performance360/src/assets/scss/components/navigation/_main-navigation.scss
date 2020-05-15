@@ -1,6 +1,115 @@
+@import './tools/breakpoint';
+@import 'owl.carousel/dist/assets/owl.carousel.css';
+
 .c-main-navigation .menu {
 
 }
+
+@include breakpoint('small') {
+    .mobile-menu-top {
+        padding: 0;
+    }
+
+    .c-main-navigation {
+        display: none;
+    }
+
+    .c-main-navigation--mobile {
+        padding: 0 35px;
+        ul {
+            margin: 0;
+        }
+
+        position: relative;
+        width: 100%;
+
+        .owl-item {
+            float: left;
+        }
+
+        .owl-carousel .owl-stage:after {
+            content: ".";
+            display: block;
+            clear: both;
+            visibility: hidden;
+            line-height: 0;
+            height: 0;
+        }
+
+        button {
+            height: 100%;
+            background: #228EFF;
+            font-size: 26px;
+            top: 0;
+            padding: 0 10px;
+        }
+
+        .owl-prev {
+            left: 0;
+            position: absolute;
+        }
+
+        .owl-next {
+            right: 0;
+            position: absolute;
+        }
+
+        .owl-dots {
+            display: none;
+        }
+
+        .menu-item {
+            list-style-type: none;
+            margin: 0;
+            display: flex;
+            min-height: 50px;
+            align-items: center;
+            justify-content: center;
+
+            a {
+                display: flex;
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 14px;
+                padding: 0 5px;
+                font-weight: bold;
+                width: max-content;
+
+                &:hover {
+                    background: none;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+@include breakpoint('mobile') {
+    .c-main-navigation {
+        display: none;
+    }
+}
+
+@include breakpoint('medium') {
+    .c-main-navigation {
+        display: none;
+    }
+
+    .c-main-navigation--mobile {
+        display: none;
+    }
+}
+
+@include breakpoint('large') {
+    .c-main-navigation {
+        display: flex;
+    }
+
+    .c-main-navigation--mobile {
+        display: none;
+    }
+}
+
 .c-main-navigation { 
         &__search-form {
             display:none;
@@ -158,6 +267,7 @@
 @include breakpoint('small') {
     .c-main-navigation { 
         display:none;
+
         &__search-form {
             display:none;
 
@@ -168,7 +278,8 @@
 
 @include breakpoint('mobile') {
     .c-main-navigation { 
-        display:flex;
+        display:none;
+
         &__search-form {
             display:none;
 
@@ -179,6 +290,8 @@
 
 @include breakpoint('medium') {
     .c-main-navigation { 
+        display:flex;
+
         &__search-form {
             display:flex;
 
@@ -195,6 +308,8 @@
 
 @include breakpoint('large') {
     .c-main-navigation { 
+        display:flex;
+
         &__search-form {
             display:flex;
             .c-search-form{
