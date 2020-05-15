@@ -226,7 +226,8 @@ if (!function_exists('_themename_the_excerpt')) {
   //IMAGE SIZES
 
   function _themename_thumbs_sizes() {
-    add_image_size( '_themename-main-loop-thumb', 300, 150, false );
+    add_image_size( '_themename-main-loop-thumb', 300, 150, array( 'center', 'center' ) );
+    add_image_size( '_themename-single-thumb', 845, 300, array( 'center', 'center' ) );
     }
     add_action( 'after_setup_theme', '_themename_thumbs_sizes' );
 
