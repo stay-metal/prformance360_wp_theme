@@ -4,6 +4,50 @@
     padding: rem-calc(8 20 14 23);
     overflow: hidden;
     border-radius: 5px;
+    &-single{
+        box-shadow: none;
+        padding: 0px;
+        margin: 0px;
+        p {
+            font-style: normal;
+            font-weight: normal;
+            font-size: rem-calc(17);
+            line-height: 160%;
+        }
+        blockquote {
+            margin: 28px 0 28px 0;
+        }
+        &__title{
+            padding-top: rem-calc(10)!important;
+            padding-bottom: rem-calc(20)!important;
+            a{
+                font-style: normal;
+                font-weight: bold;
+                font-size: rem-calc(48);
+                line-height: 111.3%;
+            }
+        }
+        &__thumbnail{
+            max-height: rem-calc(300);
+
+        }
+        &__excerpt{
+            border-bottom: 1px solid #AFAFAF;
+            padding-bottom: rem-calc(8);
+            margin-bottom: rem-calc(28);
+        }
+        &__footer {
+            border-top: 0px!important;
+            margin: rem-calc(0px 0px 0px -20px)!important;
+            padding: rem-calc(5px 0px 0px 20px)!important;
+        }
+        
+        &__header {
+           .c-post__meta{
+                padding: 0 0 0 0.8125rem;
+            }
+        }
+    }
     &.sticky {
         border-left: 5px solid $primary-pink;
     }
