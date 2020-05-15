@@ -56,4 +56,6 @@ node_modules/
 !wp-content/themes/performance360/
 !wp-content/themes/performance360-child/
 
+wp-content/themes/performance360/dist
+
 wp-content/themes/new/src/*
