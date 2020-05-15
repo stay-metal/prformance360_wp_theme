@@ -29,6 +29,10 @@
         }
         &__thumbnail{
             max-height: rem-calc(300);
+            border-radius: rem-calc(5);
+                img {
+                    border-radius: rem-calc(5);
+                }
 
         }
         &__excerpt{
@@ -39,13 +43,26 @@
         &__footer {
             border-top: 0px!important;
             margin: rem-calc(0px 0px 0px -20px)!important;
-            padding: rem-calc(5px 0px 0px 20px)!important;
+            padding: rem-calc(15px 0px 0px 20px)!important;
         }
         
         &__header {
            .c-post__meta{
                 padding: 0 0 0 0.8125rem;
             }
+        }
+        &__tags{
+           a {
+                font-style: normal;
+                font-weight: bold;
+                font-size: rem-calc(18);
+                line-height: 140%;
+                text-transform: lowercase!important;
+                padding-right: rem-calc(14);
+                &:hover {
+                    border-bottom: 0px!important;
+                }
+             }
         }
     }
     &.sticky {
