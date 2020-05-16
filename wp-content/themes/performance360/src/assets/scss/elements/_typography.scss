@@ -66,6 +66,7 @@ h1, h2, h3, h4, h5, h6 {
     color: $header-color;
     line-height: $header-lineheight;
     margin-bottom: $header-margin-bottom;
+    margin-top:  $header-margin-bottom;
     text-rendering: optimizeLegibility;
     word-break: break-word;
     small {

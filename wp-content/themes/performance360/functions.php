@@ -1,12 +1,12 @@
 <?php
 require_once ('lib/enqueue_assets.php');
 require_once ('lib/helpers.php');
+require_once ('lib/widgets.php');
 require_once ('lib/sidebars.php');
 require_once ('lib/theme_support.php');
 require_once ('lib/navigation.php');
 require_once ('lib/customize.php');
 require_once ('lib/metaboxes.php');
-require_once ('lib/utils.php');
  
 
 add_action( 'pre_get_posts', 'change_posts_per_page' );
@@ -376,8 +376,15 @@ add_action( 'edit_term', '_themename_save_pagemeta_tag' );
 
 // Page - tag connection
 
-function _themename_get_term_page_connection($post) {
-  print_r($post);
-  die;
+function _themename_get_term_page_connection($wp_query) {
+  $page_id  =$wp_query->queried_object->ID;
+  $terms = get_terms( 'post_tag', [
+    'hide_empty' => false,
+  ] );
+  foreach($terms as $term) {
+    if (get_term_meta( $term->term_id, '_themename_page_field', true) && get_term_meta( $term->term_id, '_themename_page_field', true) == $page_id) {
+    return $term->term_id;
+    }
+  }
 }
 ?>
