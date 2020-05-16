@@ -3,10 +3,12 @@
 if ($term_id && $term_id != '') {
     $args = array(
         'post_type' => 'post',
-        'tag__in' =>  $term_id
+        'tag__in' =>  $term_id,
+        'posts_per_page' => -1,
+
     );  
     $custom_query = new WP_Query( $args );
-    $wp_query = $custom_query;
+    $wp_query =  $GLOBALS['wp_query']  = $custom_query;
 }
 if ( have_posts() ) { ?>
 
