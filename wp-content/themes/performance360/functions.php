@@ -7,6 +7,8 @@ require_once ('lib/theme_support.php');
 require_once ('lib/navigation.php');
 require_once ('lib/customize.php');
 require_once ('lib/metaboxes.php');
+require_once ('lib/posts-widget.php');
+require_once ('lib/subscribe-widget.php');
  
 
 add_action( 'pre_get_posts', 'change_posts_per_page' );
@@ -246,6 +248,7 @@ if (!function_exists('_themename_the_excerpt')) {
   function _themename_thumbs_sizes() {
     add_image_size( '_themename-main-loop-thumb', 300, 150, array( 'center', 'center' ) );
     add_image_size( '_themename-single-thumb', 845, 300, array( 'center', 'center' ) );
+    add_image_size( '_themename-posts-widget-thumb', 117, 70,false );
     }
     add_action( 'after_setup_theme', '_themename_thumbs_sizes' );
 

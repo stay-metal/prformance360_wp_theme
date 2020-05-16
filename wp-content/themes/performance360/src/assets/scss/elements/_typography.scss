@@ -28,7 +28,8 @@ a {
         border-bottom: 1px solid;
     }
     &:hover {   
-        border-bottom: 1px solid $primary-blue;
+        border-bottom: 1px solid $primary-black;
+        
     }
     &:active {   
         color: $secondary-blue;      
