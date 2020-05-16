@@ -22,6 +22,6 @@ const initOwlMenu = () => {
 initOwlMenu();
 
 
-window.onresize = () => {
+window.addEventListener('resize', () => {
     initOwlMenu();
-}
+});

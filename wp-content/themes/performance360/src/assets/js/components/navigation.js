@@ -25,30 +25,46 @@ if (mobileSearchTrigger && mobileSearchForm) {
     }
 }
 
+const desktopMainMenuContainer = document.querySelector('.c-main-navigation--desktop');
+const menuItemsContainer = desktopMainMenuContainer.querySelector('#menu-main-menu');
+const menuItems = menuItemsContainer.querySelectorAll('li');
+
+let itemsWidths = 0;
+if (menuItems && menuItems.length) {
+    itemsWidths = Array.from(menuItems).map(el => {
+        return {
+            width: el.getBoundingClientRect().width,
+            el
+        }
+    });
+}
+
 const viewMoreInMenu = () => {
     // Hide overflowing menu elements behind "More"
-    const desktopMainMenuContainer = document.querySelector('.c-main-navigation--desktop');
+    const existingMore = document.querySelector('.js_more-element');
+    const mainNavEl = document.querySelector('.js_main-nav');
+    const menuWidthThreshold = mainNavEl.getBoundingClientRect().width - 300;
+
+    if (existingMore || itemsWidths.length < 1) {
+        existingMore.remove();
+    }
 
     if (desktopMainMenuContainer && desktopMainMenuContainer.offsetParent !== null) {
-        const menuItemsContainer = desktopMainMenuContainer.querySelector('#menu-main-menu');
-        const menuItems = menuItemsContainer.querySelectorAll('li');
-    
-        const menuWidthThreshold = 800;
         const menusArrays = {
             'visible': [],
             'hidden': []
         };
     
         let accWidth = 0;
-        menuItems.forEach(el => {
-            accWidth += el.offsetWidth;
+        itemsWidths.forEach(elObj => {
+            accWidth += elObj.width;
             if (accWidth < menuWidthThreshold) {
-                menusArrays['visible'].push(el);
+                menusArrays['visible'].push(elObj.el);
             } else {
-                menusArrays['hidden'].push(el);
+                menusArrays['hidden'].push(elObj.el);
             }
         });
-    
+
         menuItemsContainer.innerHTML = '';
         Object.keys(menusArrays).forEach(key => {
             if (!key) {
@@ -60,7 +76,21 @@ const viewMoreInMenu = () => {
                     menuItemsContainer.appendChild(el);
                 })
             } else {
-                const moreEl = document.querySelector('.js_more-element');
+                if (menusArrays[key].length < 1) {
+                    return;
+                }
+                const moreEl = document.createElement('li');
+                moreEl.classList.add('menu-item', 'js_more-element');
+                const textLink = document.createElement('a');
+                textLink.onclick = e => e.preventDefault();
+                const chevron = document.createElement('i');
+                chevron.classList.add('fas', 'fa-chevron-down');
+                const text = document.createTextNode('Еще');
+                textLink.appendChild(text);
+                textLink.appendChild(chevron);
+                moreEl.appendChild(textLink);
+
+
                 if (!moreEl) {
                     return;
                 }
@@ -92,6 +122,6 @@ const viewMoreInMenu = () => {
 
 viewMoreInMenu();
 
-window.onresize = () => {
+window.addEventListener('resize', () => {
     viewMoreInMenu();
-}
+});

@@ -1,5 +1,5 @@
 <div class="u-bg-color-light-blue">
-    <div class="o-container u-flex u-align-justify" >
+    <div class="o-container u-flex u-align-justify js_main-nav" >
         <nav class="c-main-navigation c-main-navigation--desktop">
             <?php wp_nav_menu(array('theme_location' => 'main-menu')); ?>
         </nav>
