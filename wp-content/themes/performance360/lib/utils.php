@@ -1,4 +1,5 @@
 <?php
+
 // Exit if accessed directly
 if( ! defined( 'ABSPATH' ) ) exit;
 
@@ -145,4 +146,4 @@ if( ! function_exists( 'wp_dropdown_posts' ) ) {
 		return $html;
 	}
 
-}?>
+}
