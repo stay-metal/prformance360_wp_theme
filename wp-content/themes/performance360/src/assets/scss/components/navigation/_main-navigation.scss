@@ -7,7 +7,8 @@
     }
 
     .c-main-navigation {
-        display: none;
+        visibility: none;
+        height: 0;
     }
 
     .c-main-navigation--mobile {
@@ -101,6 +102,7 @@
 @include breakpoint('medium') {
     .c-main-navigation {
         visibility: visible;
+        height: auto;
     }
 
     .c-main-navigation--mobile {
@@ -319,29 +321,7 @@
         }
     }
 }
-@include breakpoint('small') {
-    .c-main-navigation { 
-        display:none;
 
-        &__search-form {
-            display:none;
-
-        }
-
-}
-}
-
-@include breakpoint('mobile') {
-    .c-main-navigation { 
-        display:none;
-
-        &__search-form {
-            display:none;
-
-        }
-
-}
-}
 
 @include breakpoint('medium') {
     .c-main-navigation { 
