@@ -1,12 +1,12 @@
 <?php
 require_once ('lib/enqueue_assets.php');
-require_once ('lib/utils.php');
 require_once ('lib/helpers.php');
 require_once ('lib/sidebars.php');
 require_once ('lib/theme_support.php');
 require_once ('lib/navigation.php');
 require_once ('lib/customize.php');
 require_once ('lib/metaboxes.php');
+require_once ('lib/utils.php');
  
 
 add_action( 'pre_get_posts', 'change_posts_per_page' );
@@ -313,7 +313,6 @@ function _themename_add_page_field ( $taxonomy ){
 <?php
 wp_dropdown_pages( $dropdown_args );
   ?>
-  <p class="description">В этом поле нужно указать страницу к которой привязан данный тег</p>
 </div>
 <?php 
 }
@@ -337,11 +336,22 @@ function _themename_edit_page_field ( $term ) {
 ?>
 <tr class="form-field _themename_page_field">
 <th scope="row"><label for="_themename_page_field">Привязка к странице: </label></th>
+<p class="description">В данном поле нужно указать страницу</p>
       <td>
 <?php
 wp_dropdown_pages( $dropdown_args );
+$defaults = array(
+  'depth'            => 0,
+  'post_type'        => 'post',
+  'name'             => '_themename_page_field',
+  'selected'         => $page,
+  'show_option_none' => 'Нет',
+  'sort_column'      => 'menu_order, post_title',
+  'value_field'      => 'ID',
+  'echo'             => 1,
+);
+wp_dropdown_pages( $defaults );
 ?>
-<p class="description">В этом поле нужно указать страницу к которой привязан данный тег</p>
 </td>
 </tr>
 <?php
@@ -364,24 +374,10 @@ function _themename_save_pagemeta_tag( $term_id ) {
 add_action( 'created_term', '_themename_save_pagemeta_tag' );
 add_action( 'edit_term', '_themename_save_pagemeta_tag' );
 
-// $dropdown_args = array(
-//   'depth'            => 0,
-//   'post_type'        => 'post',
-//   'hierarchical' => true
-  
-// );
-// wp_dropdown_pages( $dropdown_args );
-// die;
-// $dropdown_args = array(
-//   'post_type'        => 'post',
-//   // 'exclude_tree'     => $post->ID,
-//   'selected'         => '0',
-//   'name'             => 'parent_id',
-//   'show_option_none' => __('(no parent)'),
-//   'sort_column'      => 'menu_order, post_title',
-//   'echo'             => 0,
-// );
-// $pages = wp_dropdown_pages( $dropdown_args );
-// echo $pages;
-// die;
+// Page - tag connection
+
+function _themename_get_term_page_connection($post) {
+  print_r($post);
+  die;
+}
 ?>
