@@ -25,7 +25,7 @@ add_action( 'customize_preview_init', '_themename_customize_preview' );
 function _themename_load_more_scripts() {
 
     global $wp_query;
-    print_r($GLOBALS['new_query']); 
+
     
     wp_enqueue_script( '_themename-load-more', get_template_directory_uri() . '/dist/assets/js/load-more.js', array('jquery'), '1.0.0' , true );
  

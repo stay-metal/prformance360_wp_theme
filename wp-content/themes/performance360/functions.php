@@ -140,18 +140,18 @@ if (!function_exists('_themename_footer_widget_sidebar')) {
         die;
    } else {
     echo 'NOT HOME';
-    // query_posts( $args );
+    query_posts( $args );
    
-    // if( have_posts() ) :
+    if( have_posts() ) :
 
-    //   while( have_posts() ): the_post();
+      while( have_posts() ): the_post();
    
-    //     get_template_part( 'template-parts/post/content' );
+        get_template_part( 'template-parts/post/content' );
 
-    //   endwhile;
+      endwhile;
    
-    // endif;
-    // die;
+    endif;
+    die;
   }
   }
    
@@ -390,4 +390,20 @@ function _themename_get_term_page_connection($wp_query) {
     }
   }
 }
+
+// add_action('pre_get_posts','myf88');
+// function myf88($query) {
+
+//   $term_id = _themename_get_term_page_connection($query);
+
+//   if ( !is_admin() && $query->is_main_query() &&  $query->is_page && $term_id  && $term_id != '')   {
+//     $query->set( 'post_type', 'post' );
+//     $query->set( 'numberposts', -1 );
+//     print_r($query);
+
+//   }
+// }
+
+
+
 ?>
