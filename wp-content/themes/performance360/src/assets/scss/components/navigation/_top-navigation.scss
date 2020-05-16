@@ -1,3 +1,33 @@
+header {
+    position: relative;
+}
+
+.hamburger-menu-content {
+    visibility: hidden;
+    position: absolute;
+    top: 71px;
+    background-color: #fff;
+    z-index: 1000;
+    padding: 20px;
+    width: 100%;
+    background: #fff;
+
+    ul {
+        margin: 0;
+    }
+
+    li {
+        list-style-type: none;
+        margin: 0;
+
+        a {
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #000;
+        }
+    }
+}
+
 .c-header__topnav {
     float: right;
        .menu {

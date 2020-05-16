@@ -127,3 +127,31 @@ viewMoreInMenu();
 window.addEventListener('resize', () => {
     viewMoreInMenu();
 });
+
+const toggleHamburgerMenu = (clicked) => {
+    const hamburgerMenuButton = document.querySelector('.js_toggle-hamburger-menu');
+    const hamburgerMenuContent = document.querySelector('.js_hamburger-menu-content');
+
+    if (!hamburgerMenuButton || !hamburgerMenuContent) return;
+
+    const isOpen = hamburgerMenuButton.dataset.open === 'true';
+
+    hamburgerMenuButton.onclick = () => {
+        toggleHamburgerMenu(true);
+    };
+
+    if (!clicked) {
+        return;
+    }
+
+    if (!isOpen) {
+        hamburgerMenuButton.dataset.open = 'true';
+        hamburgerMenuContent.style.visibility = 'visible';
+    } else {
+        hamburgerMenuButton.dataset.open = 'false';
+        hamburgerMenuContent.style.visibility = 'hidden';
+    }
+
+}
+
+toggleHamburgerMenu();
