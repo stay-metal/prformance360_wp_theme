@@ -42,7 +42,7 @@ var pageNumber = 1;
 
 function load_posts(){
     pageNumber++;
-    var str = ''&pageNumber=' + pageNumber + '&ppp=' + ppp + '&action=more_post_ajax';
+    var str = '&pageNumber=' + pageNumber + '&ppp=' + ppp + '&action=more_post_ajax';
     $.ajax({
         type: "POST",
         dataType: "html",
