@@ -43,13 +43,16 @@ const viewMoreInMenu = () => {
     // Hide overflowing menu elements behind "More"
     const existingMore = document.querySelector('.js_more-element');
     const mainNavEl = document.querySelector('.js_main-nav');
-    const menuWidthThreshold = mainNavEl.getBoundingClientRect().width - 300;
+    const shouldRun = desktopMainMenuContainer &&
+        mainNavEl &&
+        desktopMainMenuContainer.offsetParent !== null
 
-    if (existingMore || itemsWidths.length < 1) {
+    if (existingMore) {
         existingMore.remove();
     }
 
-    if (desktopMainMenuContainer && desktopMainMenuContainer.offsetParent !== null) {
+    if (shouldRun) {
+        const menuWidthThreshold = mainNavEl.getBoundingClientRect().width - 300;
         const menusArrays = {
             'visible': [],
             'hidden': []
