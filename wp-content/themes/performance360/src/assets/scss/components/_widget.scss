@@ -1,8 +1,16 @@
+.blog .c-sidebar-widget {
+    background: $primary-white;
+}
+
 .c-sidebar-widget {
     // background-color: #ffffff;
     // border: 1px solid $grey;
     // box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.05);
-    padding: rem-calc(20);
+    // padding: rem-calc(20);
+    &__title {
+        margin: 0px;
+        padding: rem-calc(21 22 20 22);
+    }
     h5 {
         font-weight: 600;
     }
@@ -11,6 +19,54 @@
         margin: 0;
     }
 }
+
+//Posts Widget
+ .widget_posts_widget {
+     &__post-container {
+        padding: rem-calc( 0 22 20 22);
+        display: flex;
+     }
+     &__post-thumbnail {
+        background-size: cover;
+        background-position: center;
+        width: rem-calc(117);
+        height:  rem-calc(70);
+     }
+     &__post-title {
+        width: rem-calc(180);
+         padding-left: rem-calc(13);
+         line-height: rem-calc(17); 
+         &_full-width {
+             width:100%;
+             padding-left: 0;
+         }
+         a {
+             
+            font-style: normal;
+            font-weight: normal;
+            font-size: rem-calc(14);           
+            color: $primary-black;
+        
+         }
+     }
+    }
+    aside {
+        .widget_subscribe_widget {
+            background: $primary-pink!important;
+
+            &__title{
+                font-style: normal;
+                font-weight: bold;
+                font-size: rem-calc(16);
+                line-height: 120%;
+            }
+        }
+    }
+    .widget_subscribe_widget {
+        padding: rem-calc(21 22 20 22);
+
+
+       }
 
 .c-footer-widget {
     > ul {
