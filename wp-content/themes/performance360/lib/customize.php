@@ -48,6 +48,19 @@
                 )
             )
         );
+
+        //Homepage settings
+        $wp_customize->add_setting('_themename_slider_tag_id', array(
+            'default' => '',
+            'sanitize_callback' => 'sanitize_text_field'
+        ));
+
+        $wp_customize->add_control('_themename_slider_tag_id', array(
+            'type' => 'text',
+            'label' => esc_html('Id метки для слайдера'),
+            'section' => 'static_front_page'
+        ));
+
         
     }
 
