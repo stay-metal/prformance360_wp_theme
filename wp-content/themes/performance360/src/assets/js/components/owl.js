@@ -13,8 +13,8 @@ const initOwlMenu = () => {
         });
         jQuery(owlElement).owlCarousel({
             margin: 10,
-            autoWidth: true,
-            items: 2
+            loop: true,
+            autoWidth: true
         });
     }
 }
