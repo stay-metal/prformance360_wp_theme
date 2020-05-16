@@ -1,5 +1,6 @@
 <?php
 require_once ('lib/enqueue_assets.php');
+require_once ('lib/utils.php');
 require_once ('lib/helpers.php');
 require_once ('lib/sidebars.php');
 require_once ('lib/theme_support.php');
@@ -363,7 +364,24 @@ function _themename_save_pagemeta_tag( $term_id ) {
 add_action( 'created_term', '_themename_save_pagemeta_tag' );
 add_action( 'edit_term', '_themename_save_pagemeta_tag' );
 
-
-
-
+// $dropdown_args = array(
+//   'depth'            => 0,
+//   'post_type'        => 'post',
+//   'hierarchical' => true
+  
+// );
+// wp_dropdown_pages( $dropdown_args );
+// die;
+// $dropdown_args = array(
+//   'post_type'        => 'post',
+//   // 'exclude_tree'     => $post->ID,
+//   'selected'         => '0',
+//   'name'             => 'parent_id',
+//   'show_option_none' => __('(no parent)'),
+//   'sort_column'      => 'menu_order, post_title',
+//   'echo'             => 0,
+// );
+// $pages = wp_dropdown_pages( $dropdown_args );
+// echo $pages;
+// die;
 ?>
