@@ -11,7 +11,7 @@
                 <div class="o-container">
                     <div class="o-row u-flex u-flex-wrap-reverse">
                         <div class="o-row__column o-row__column--span-12 o-row__column--span-4@medium u-flex">    
-                        <div class= "c-header__mobile-menu">
+                        <div class= "c-header__mobile-menu js_toggle-hamburger-menu" data-open="false">
                         <label class="c-header__hamburger"><span class="c-header__hamburger-navicon"></span></label>
                             </div>  
                             <div class="c-header__logo">
@@ -32,6 +32,9 @@
                             <div class="c-header__menu">
                             <?php get_template_part( 'template-parts/navigation/top_navigation' ); ?>
                             </div>
+                        </div>
+                        <div class="js_hamburger-menu-content hamburger-menu-content">
+                            <?php wp_nav_menu(array('theme_location' => 'top-menu')); ?>
                         </div>
                     </div>
                 </div>
