@@ -52,22 +52,94 @@
     }
     aside {
         .widget_subscribe_widget {
+            padding: rem-calc(21 22 20 22);
             background: $primary-pink!important;
 
             &__title{
                 font-style: normal;
                 font-weight: bold;
-                font-size: rem-calc(16);
+                max-width: rem-calc(250);
+                padding-bottom: rem-calc(15);
+                font-size: rem-calc(15);
                 line-height: 120%;
             }
+            &__form-input {
+                height: rem-calc(37);
+                border: none;
+                font-size: rem-calc(14);
+                line-height: 17px;
+                color: $primary-black;
+                // width: rem-calc(261);
+                padding-right: rem-calc(130);
+            
+            }
+            &__form-label {
+                display: flex;
+                padding-right: 10%;
+            }
+            &__form-submit {
+                // position: absolute;
+                background: $primary-blue;
+                width: rem-calc(121);
+                padding: 0px;
+                height: rem-calc(33);
+                /* text-align: center; */
+                margin-left: rem-calc(-123);
+                margin-top: rem-calc(2);
+                font-style: normal;
+                font-weight: bold;
+                font-size: rem-calc(14);
+                line-height: 17px;
+            
+            }
+
         }
     }
-    .widget_subscribe_widget {
-        padding: rem-calc(21 22 20 22);
 
+    .c-footer-widget {
+        .widget_subscribe_widget {
+            padding-top: 0px!important;
 
-       }
+            &__title{
+                font-style: normal;
+                font-weight: bold;
+                max-width: rem-calc(270);
+                padding-bottom: rem-calc(20);
+                font-size: rem-calc(15);
+                line-height: 120%;
+            }
+            &__form-input {
+                height: rem-calc(37);
+                border: none;
+                font-size: rem-calc(14);
+                line-height: 17px;
+                color: $primary-black;
+                // width: rem-calc(261);
+                padding-right: rem-calc(130);
+            
+            }
+            &__form-label {
+                display: flex;
+                padding-right: 10%;
+            }
+            &__form-submit {
+                // position: absolute;
+                background: #F42548;
+                width: rem-calc(121);
+                padding: 0px;
+                height: rem-calc(37);
+                /* text-align: center; */
+                margin-left: rem-calc(-121);
+                margin-top: rem-calc(0);
+                font-style: normal;
+                font-weight: bold;
+                font-size: rem-calc(14);
+                line-height: 17px;
+            
+            }
 
+        }
+    }
 .c-footer-widget {
     > ul {
         list-style: none;
