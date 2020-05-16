@@ -44,8 +44,7 @@ const viewMoreInMenu = () => {
     const existingMore = document.querySelector('.js_more-element');
     const mainNavEl = document.querySelector('.js_main-nav');
     const shouldRun = desktopMainMenuContainer &&
-        mainNavEl &&
-        desktopMainMenuContainer.offsetParent !== null
+        mainNavEl;
 
     if (existingMore) {
         existingMore.remove();
