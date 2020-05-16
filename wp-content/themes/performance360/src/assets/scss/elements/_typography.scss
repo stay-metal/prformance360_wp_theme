@@ -21,17 +21,17 @@ a {
     cursor: pointer;
     // border-bottom: 1px solid;
     text-decoration: none;
-    color: $primary-colour;
+    color: $primary-blue;
     word-break: break-all;
     word-break: break-word;
     &:visited {
         border-bottom: 1px solid;
     }
     &:hover {   
-        border-bottom: none;
+        border-bottom: 1px solid $primary-blue;
     }
     &:active {   
-        color: $primary-colour;      
+        color: $secondary-blue;      
     }
     &:focus {   
         border: none; 
@@ -87,12 +87,14 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 blockquote {
-    font-style: italic; 
-    margin: 0 0 $paragraph-margin-bottom;
-    padding: rem-calc(20 40 20 40);
-    font-family: $font-family-serif;
+    // font-style: italic; 
+    // margin: 0 0 $paragraph-margin-bottom;
+    padding: rem-calc(0 0 0 0);
+    // font-family: $font-family-serif;
+    border-left: rem-calc(8) solid #FF0000;
+    padding-left: rem-calc(12);
     &, p {
-        line-height: $paragraph-lineheight;
+        line-height: 150%;
     }
 }
 cite {
