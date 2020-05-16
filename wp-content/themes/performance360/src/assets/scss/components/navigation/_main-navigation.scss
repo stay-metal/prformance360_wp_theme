@@ -94,13 +94,13 @@
 
 @include breakpoint('mobile') {
     .c-main-navigation {
-        display: none;
+        visibility: hidden;
     }
 }
 
 @include breakpoint('medium') {
     .c-main-navigation {
-        display: none;
+        visibility: visible;
     }
 
     .c-main-navigation--mobile {
@@ -111,6 +111,7 @@
 
 @include breakpoint('large') {
     .c-main-navigation {
+        visibility: visible;
         display: flex;
     }
 
