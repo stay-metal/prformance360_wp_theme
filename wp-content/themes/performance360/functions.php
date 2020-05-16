@@ -248,29 +248,32 @@ if (!function_exists('_themename_the_excerpt')) {
     }
     add_action( 'after_setup_theme', '_themename_thumbs_sizes' );
 
+  // ADD COLOR OF TAG TEXT
+
 function _themename_add_tag_color ( $taxonomy ){
     ?>
     <div class="form-field term-colorpicker-wrap">
-        <label for="term-colorpicker">Category Color</label>
-        <input type="color" name="_tag_color" value="#737373" class="colorpicker" id="term-colorpicker" />
-        <p>This is the field description where you can tell the user how the color is used in the theme.</p>
+        <label for="term-colorpicker">Цвет: </label>
+        <input type="color" name="_themename_tag_color" value="#737373" class="colorpicker" id="term-colorpicker" />
+        <p>В этом поле можно выбрать цвета текста тега</p>
     </div>
         <?php 
 }
 add_action('add_tag_form_fields','_themename_add_tag_color');
 
 
+
 function _themename_edit_tag_color ( $term ) {
 
-  $color = get_term_meta( $term->term_id, '_tag_color', true );
+  $color = get_term_meta( $term->term_id, '_themename_tag_color', true );
   $color = ( ! empty( $color ) ) ? "#{$color}" : '#737373';
 
 ?>
   <tr class="form-field term-colorpicker-wrap">
-      <th scope="row"><label for="term-colorpicker">Severity Color: <?php echo $color; ?></label></th>
+      <th scope="row"><label for="term-colorpicker">Цвет: <?php echo $color; ?></label></th>
       <td>
-          <input type="color" name="_tag_color" value=" <?php echo $color; ?>" class="colorpicker" id="term-colorpicker" />
-          <p class="description">This is the field description where you can tell the user how the color is used in the theme.</p>
+          <input type="color" name="_themename_tag_color" value="<?php echo $color; ?>" class="colorpicker" id="term-colorpicker" />
+          <p class="description">В этом поле можно выбрать цвета текста тега</p>
       </td>
   </tr>
 
@@ -279,18 +282,86 @@ function _themename_edit_tag_color ( $term ) {
 add_action('edit_tag_form_fields','_themename_edit_tag_color');
 
 
-function save_termmeta_tag( $term_id ) {
+function _themename_save_termmeta_tag( $term_id ) {
 
-  // Save term color if possible
- if( isset( $_POST['_tag_color'] ) && ! empty( $_POST['_tag_color'] ) ) {
-     update_term_meta( $term_id, '_tag_color', sanitize_hex_color_no_hash( $_POST['_tag_color'] ) );
- } else {
-     delete_term_meta( $term_id, '_tag_color' );
- }
-
+ // Save term color if possible
+ if( isset( $_POST['_themename_tag_color'] ) && ! empty( $_POST['_themename_tag_color'] ) ) {
+  $sanitized_color = sanitize_hex_color_no_hash($_POST['_themename_tag_color']);
+  update_term_meta( $term_id, '_themename_tag_color', $sanitized_color );
+} else {
+  delete_term_meta( $term_id, '_themename_tag_color' );
 }
 
-add_action( 'created_tag', 'save_termmeta_tag' );
-add_action( 'edited_tag',  'save_termmeta_tag' ); 
+}
+add_action( 'created_term', '_themename_save_termmeta_tag' );
+add_action( 'edit_term', '_themename_save_termmeta_tag' );
+
+function _themename_add_page_field ( $taxonomy ){
+  $dropdown_args = array(
+    'depth'            => 0,
+    'post_type'        => 'page',
+    'name'             => '_themename_page_field',
+    'selected'         => 0,
+    'show_option_none' => 'Нет',
+    'sort_column'      => 'menu_order, post_title',
+    'value_field'      => 'ID',
+    'echo'             => 1,
+);?>
+<div class="form-field _themename_page_field">
+        <label for="_themename_page_field" style="padding-bottom: 5px;">Привязка к странице: </label>
+<?php
+wp_dropdown_pages( $dropdown_args );
+  ?>
+  <p class="description">В этом поле нужно указать страницу к которой привязан данный тег</p>
+</div>
+<?php 
+}
+add_action('add_tag_form_fields','_themename_add_page_field');
+
+function _themename_edit_page_field ( $term ) {
+
+  $page = get_term_meta( $term->term_id, '_themename_page_field', true );
+  $page = ( ! empty( $page ) ) ? $page : 0;
+
+  $dropdown_args = array(
+    'depth'            => 0,
+    'post_type'        => 'page',
+    'name'             => '_themename_page_field',
+    'selected'         => $page,
+    'show_option_none' => 'Нет',
+    'sort_column'      => 'menu_order, post_title',
+    'value_field'      => 'ID',
+    'echo'             => 1,
+);
+?>
+<tr class="form-field _themename_page_field">
+<th scope="row"><label for="_themename_page_field">Привязка к странице: </label></th>
+      <td>
+<?php
+wp_dropdown_pages( $dropdown_args );
+?>
+<p class="description">В этом поле нужно указать страницу к которой привязан данный тег</p>
+</td>
+</tr>
+<?php
+}
+
+add_action('edit_tag_form_fields','_themename_edit_page_field');
+
+
+
+function _themename_save_pagemeta_tag( $term_id ) {
+ // Save term color if possible
+ if( isset( $_POST['_themename_page_field'] ) && ! empty( $_POST['_themename_page_field'] ) ) {
+  // $sanitized_color = sanitize_hex_color_no_hash($_POST['_themename_tag_color']);
+  update_term_meta( $term_id, '_themename_page_field', $_POST['_themename_page_field'] );
+} else {
+  delete_term_meta( $term_id, '_themename_page_field' );
+}
+
+}
+add_action( 'created_term', '_themename_save_pagemeta_tag' );
+add_action( 'edit_term', '_themename_save_pagemeta_tag' );
+
 
 ?>
