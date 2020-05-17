@@ -36,8 +36,9 @@ if ( $custom_query -> have_posts() ) { ?>
         <script>
 // {ID} is any unique name, example: b1, q9, qq, misha etc, it should be unique
 var posts_tagPage = '<?php echo  serialize( $custom_query->query_vars  ) ?>';
-var   current_page_tagPage = 1;
-var  max_page_tagPage = <?php echo $custom_query->max_num_pages ?>;
+var current_page_tagPage = 1;
+var max_page_tagPage = <?php echo $custom_query->max_num_pages ?>;
+var tagPageId = <?php echo $term_id ?>;
 
 </script>
     <?php } else { ?>

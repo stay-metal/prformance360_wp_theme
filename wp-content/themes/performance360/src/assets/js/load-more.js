@@ -7,8 +7,7 @@ jQuery(function($){
 		    data = {
 			'action': 'loadmore',
 			'query': performance_loadmore_params.posts,
-            'page' : performance_loadmore_params.current_page,
-            'is_home': performance_loadmore_params.is_home
+            'page' : performance_loadmore_params.current_page
 		};
  
 		$.ajax({
@@ -46,11 +45,12 @@ jQuery(function($){
 
 		var button = $(this),
 		    data = {
-			'action': 'loadmore',
-			'query': posts_tagPage,
-            'page' : current_page_tagPage,
-            'is_home': ''
+			'action': 'loadmore_tags',
+			'tag_id': tagPageId,
+			'ppp': 6,
+            'offset' : current_page_tagPage,
 		};
+		debugger;
 		$.ajax({
 			url : performance_loadmore_params.ajaxurl,
 			data : data,
