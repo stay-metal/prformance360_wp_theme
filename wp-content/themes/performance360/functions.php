@@ -11,13 +11,7 @@ require_once ('lib/posts-widget.php');
 require_once ('lib/subscribe-widget.php');
  
 
-add_action( 'pre_get_posts', 'change_posts_per_page' );
 
-function change_posts_per_page( $query ) {
-
-    $query->set( 'posts_per_page', 9 );
-    return;
-}
 
 add_action( "_themename_before_loop_start", "_themename_show_big_post", 1, 1);
 add_action( "_themename_before_loop_start", "_themename_show_medium_posts", 2);
@@ -118,12 +112,14 @@ if (!function_exists('_themename_footer_widget_sidebar')) {
 
   // Load more 
   function _themename_loadmore_ajax_handler(){
-    global $wp_query;
-    
+
     $is_home = json_decode( stripslashes( $_POST['is_home'] ), true );
     $args = json_decode( stripslashes( $_POST['query'] ), true );
     $args['paged'] = $_POST['page'] + 1;
     $args['post_status'] = 'publish';
+
+    var_dump($_POST['query']);
+    die;
     
    if ( $is_home ) {
         query_posts( $args );
@@ -137,16 +133,16 @@ if (!function_exists('_themename_footer_widget_sidebar')) {
           endwhile;
       
         }
-        die;
+        
    } else {
-    echo 'NOT HOME';
+
     query_posts( $args );
    
     if( have_posts() ) :
 
       while( have_posts() ): the_post();
    
-        get_template_part( 'template-parts/post/content' );
+        get_template_part( 'template-parts/post/content', 'page' );
 
       endwhile;
    
@@ -403,6 +399,7 @@ function _themename_get_term_page_connection($wp_query) {
 
 //   }
 // }
+
 
 
 
