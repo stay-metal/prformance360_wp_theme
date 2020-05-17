@@ -26,8 +26,8 @@ if (mobileSearchTrigger && mobileSearchForm) {
 }
 
 const desktopMainMenuContainer = document.querySelector('.c-main-navigation--desktop');
-const menuItemsContainer = desktopMainMenuContainer.querySelector('#menu-main-menu');
-const menuItems = menuItemsContainer.querySelectorAll('li');
+const menuItemsContainer = desktopMainMenuContainer && desktopMainMenuContainer.querySelector('ul');
+const menuItems = menuItemsContainer && menuItemsContainer.querySelectorAll('li');
 
 let itemsWidths = 0;
 if (menuItems && menuItems.length) {
