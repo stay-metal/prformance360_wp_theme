@@ -112,33 +112,42 @@ if (!function_exists('_themename_footer_widget_sidebar')) {
 
   // Load more 
   function _themename_loadmore_ajax_handler(){
-
-
-    $is_home = json_decode( stripslashes( $_POST['is_home'] ), true );
     $args = json_decode( stripslashes( $_POST['query'] ), true );
     $args['paged'] = $_POST['page'] + 1;
     $args['post_status'] = 'publish';
-     
-   if ( $is_home ) {
-        query_posts( $args );
-      
-        if( have_posts() ) {
-
-          while( have_posts() ): the_post();
-      
-            get_template_part( 'template-parts/post/content', 'masonry' );
-
-          endwhile;
-      
-        }
-        
-   } else {
 
     query_posts( $args );
-   
-    if( have_posts() ) :
+  
+    if( have_posts() ) {
 
       while( have_posts() ): the_post();
+  
+        get_template_part( 'template-parts/post/content', 'masonry' );
+
+      endwhile;
+  
+    }
+  }
+
+
+  // Load more 
+  function _themename_loadmore_ajax_handler_tag(){
+    $ppp     = (isset($_POST['ppp'])) ? $_POST['ppp'] : 3;
+		$tagId     = (isset($_POST['tag_id'])) ? $_POST['tag_id'] : 0;
+		$offset  = (isset($_POST['offset'])) ? $_POST['offset'] : 0;
+
+		$tagArgs = array(
+			'post_type'      => 'post',
+			'posts_per_page' => $ppp,
+			'tag_id'            => $tagId,
+			'offset'          => $offset,
+    );
+    
+    $tagQuery = new WP_Query($tagArgs);
+
+    if( $tagQuery->have_posts() ) :
+
+      while( $tagQuery->have_posts() ): $tagQuery->the_post();
    
         get_template_part( 'template-parts/post/content', 'page' );
 
@@ -147,9 +156,10 @@ if (!function_exists('_themename_footer_widget_sidebar')) {
     endif;
     die;
   }
-  }
+
    
   add_action('wp_ajax_loadmore', '_themename_loadmore_ajax_handler');
+  add_action('wp_ajax_loadmore_tags', '_themename_loadmore_ajax_handler_tag');
   add_action('wp_ajax_nopriv_loadmore', '_themename_loadmore_ajax_handler');
 
   function _themename_single_meta($id, $key, $default) {
