@@ -1,5 +1,6 @@
 
 <?php $term_id_field = get_post_meta(get_the_ID()); 
+if (!empty($term_id_field['__themename_relate_tag_id']))
 $term_id_field = $term_id_field['__themename_relate_tag_id'][0];
 if ($term_id_field && $term_id_field!='') {
     $term_id = $term_id_field;

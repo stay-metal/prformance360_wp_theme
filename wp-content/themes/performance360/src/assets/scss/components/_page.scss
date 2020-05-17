@@ -1,7 +1,5 @@
 .c-page {
-    .c-post__meta{
-        display:none;
-    }
+
     background-color: #ffffff;
     border: 1px solid $grey;
     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.05);
@@ -27,7 +25,7 @@
             font-size: rem-calc(48);
             line-height: rem-calc(58);
             width:35%;
-            min-width: 17.875rem;
+            white-space: nowrap;
         }
         &__line {
             margin-left: 2.5rem;
