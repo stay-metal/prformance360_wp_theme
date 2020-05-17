@@ -199,6 +199,67 @@ if (!function_exists('_themename_the_excerpt')) {
     echo $tag_list;
   }
 
+  // function _themename_get_term_page_connection($wp_query) {
+  //   $page_id  =$wp_query->queried_object->ID;
+  //   $terms = get_terms( 'post_tag', [
+  //     'hide_empty' => false,
+  //   ] );
+  //   foreach($terms as $term) {
+  //     if (get_term_meta( $term->term_id, '_themename_page_field', true) && get_term_meta( $term->term_id, '_themename_page_field', true) == $page_id) {
+  //     return $term->term_id;
+  //     }
+  //   }
+  // }
+  // #007DFF
+  function _themename_loop_tags(){
+    global $post;
+
+    
+    $tags = get_terms( array(
+      'taxonomy'      => array( 'post_tag' ), 
+      'object_ids'    =>  $post->ID,
+      'orderby'       => 'id', 
+      'order'         => 'ASC',
+    ) );
+    $tags_final_array = [];
+    foreach ($tags as $tag) {
+      $page = get_term_meta( $tag->term_id, '_themename_page_field', true);
+      $color = get_term_meta( $tag->term_id, '_themename_tag_color', true);
+      if (!empty($page)) {
+        $tag ->page_rel = $page;
+        if (!empty($color)) {
+          $tag ->color = $color;
+        } else {
+          $tag ->color = 'AD6868';
+        }
+        $tags_final_array[] = $tag;
+      }
+    }
+    // var_dump( $tags_final_array);
+    // die;
+    $tag_list ='';
+    $i=1;
+    if (!empty($tags_final_array)) {
+    foreach ($tags_final_array as $tag) {
+      if($i<=2) {
+      $tag_list.='<a href="'.get_page_link($tag->page_rel).'" class="c-post__tags-link" style="color:#'.$tag->color.'">'.$tag->name.'</a> ';
+      }
+      $i++;
+    }
+  } 
+    return $tag_list;
+  }
+
+  function _themename_single_page_cats(){
+    global $post;
+    $cats = wp_get_post_categories($post->ID);
+    $tag_list ='';
+    foreach ($cats as $cat) {
+      $tag_list.='<a href="'.get_category_link($cat).'" class="c-post__tags-link" style="color:#EB5757">'.get_cat_name($cat).'</a> ';
+    }
+    return $tag_list;
+  }
+
 
   function _themename_tags_filter( $tag_list, $before, $sep, $after, $id ){
     global $post;
@@ -253,7 +314,7 @@ function _themename_add_tag_color ( $taxonomy ){
     ?>
     <div class="form-field term-colorpicker-wrap">
         <label for="term-colorpicker">Цвет: </label>
-        <input type="color" name="_themename_tag_color" value="#737373" class="colorpicker" id="term-colorpicker" />
+        <input type="color" name="_themename_tag_color" value="#AD6868" class="colorpicker" id="term-colorpicker" />
         <p>В этом поле можно выбрать цвета текста тега</p>
     </div>
         <?php 
@@ -265,7 +326,7 @@ add_action('add_tag_form_fields','_themename_add_tag_color');
 function _themename_edit_tag_color ( $term ) {
 
   $color = get_term_meta( $term->term_id, '_themename_tag_color', true );
-  $color = ( ! empty( $color ) ) ? "#{$color}" : '#737373';
+  $color = ( ! empty( $color ) ) ? "#{$color}" : '#AD6868';
 
 ?>
   <tr class="form-field term-colorpicker-wrap">

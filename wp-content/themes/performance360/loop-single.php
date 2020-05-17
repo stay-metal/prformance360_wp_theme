@@ -6,7 +6,7 @@
 <?php 
 if ( have_posts() ) { ?>
 
-    <div class="o-container u-margin-top-10">
+    <div class="o-container">
         <?php while (have_posts() ) { ?>
             <?php the_post(); ?>
             <?php get_template_part( 'template-parts/post/content', 'single'); ?>

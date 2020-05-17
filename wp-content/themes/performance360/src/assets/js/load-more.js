@@ -21,6 +21,7 @@ jQuery(function($){
 			success : function( data ){
 				if( data ) { 
 					button.text( 'Загрузить еще' );
+					$('.o-container_cat').append(data);
 					$('.o-container_masonry').append(data);
 					performance_loadmore_params.current_page++;
  

@@ -11,9 +11,50 @@ function _themename_add_meta_box() {
     'default'
     );
 }
+if ($post->ID != get_option( 'page_for_posts' ) ) {
+    add_meta_box( '_themename_tag_metabox', 
+    'Привязана к тегу', 
+    '_themename_page_tag_relation', 
+    'page',
+    'normal', 
+    'default'
+    );
+}
 }
 
 add_action( 'add_meta_boxes', '_themename_add_meta_box' );
+
+function _themename_page_tag_relation($this_post){
+    global $post;
+    // var_dump($post->ID);
+    $realted_tag = get_post_meta($this_post->ID, '__themename_relate_tag_id', true);
+    $tag_relation = [];
+    $terms = get_terms( array(
+        'taxonomy' => 'post_tag',
+        'hide_empty' => false,
+    ) );
+    foreach($terms as $term) {
+        $page = get_term_meta( $term->term_id, '_themename_page_field', true);
+
+
+        if (!empty($page) && $page == $post->ID) {
+
+            $tag_relation[] = ['id'=>$term->term_id, 'name' =>  $term->name ];
+        }
+    }
+    //   var_dump($tag_relation);
+      if (!empty($tag_relation)) { ?>
+
+    <label for="_themename_relate_tag_id"><b> Тег, привязанный к странице: </b></label>
+    <select name="_themename_relate_tag_id" id="_themename_relate_tag_id">
+    <option value="" <?php if ($realted_tag == "" || !isset($realted_tag)) echo 'selected="selected"'; ?>>Не выбрано</option>
+    <?php foreach( $tag_relation as $tag ) :  ?>
+    <option value="<?php echo $tag['id']; ?>" <?php if ( $tag['id'] == $realted_tag) echo 'selected="selected"'; ?>><?php echo $tag['name']; ?></option>
+    <?php endforeach; ?>
+    </select>
+     <?php }
+
+}
 
 function _themename_main_bg_md_posts($this_post){
 
@@ -102,6 +143,12 @@ $m_two_post = get_post_meta($this_post->ID, '__themename_middle_two_post', true)
         $_POST['_themename_m_two_post_id'] 
         );    
     }
+    if( isset ( $_POST['_themename_relate_tag_id'] ) ) {
+        update_post_meta( $post_id, 
+        '__themename_relate_tag_id', 
+        $_POST['_themename_relate_tag_id'] 
+        );    
+    }    
 }
 ?>
 <?php add_action( 'save_post', '_themename_save_post_metabox', 10, 2 ); ?>
