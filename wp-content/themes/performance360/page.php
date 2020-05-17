@@ -11,7 +11,7 @@
         <div class="o-row__column o-row__column--span-12 o-row__column--span-12@small o-row__column--span-12@mobile o-row__column--span-4@medium">  
         <?php if ( is_active_sidebar('primary-sidebar') ) { ?>
             <?php get_sidebar(); ?>
-            <?php } ?>
+                    <?php } ?>
         </div>
         <?php } ?>
     </div>

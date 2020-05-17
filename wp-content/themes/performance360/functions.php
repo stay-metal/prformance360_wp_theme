@@ -118,6 +118,7 @@ if (!function_exists('_themename_footer_widget_sidebar')) {
     $args = json_decode( stripslashes( $_POST['query'] ), true );
     $args['paged'] = $_POST['page'] + 1;
     $args['post_status'] = 'publish';
+
      
    if ( $is_home ) {
         query_posts( $args );
