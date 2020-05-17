@@ -14,3 +14,35 @@
     }
 
 }
+
+@media only screen  and (max-width: 580px)  {
+
+    .c-term-page-header__title {
+        width: auto;
+        min-width: auto;
+        white-space: nowrap;
+    }
+    .c-term-page-header__line {
+        margin-left: 1rem;
+    }
+
+    .c-post {
+
+        &-term {
+            flex-direction: column!important;
+            &__thumbnail-container {
+                width: 85%;
+                min-width:rem-calc(286);
+            }
+            &__content-container {
+                width: 100%;
+                &_has-thumb {
+                    padding-left: rem-calc(0);
+                    padding-top: rem-calc(25);
+                }
+                padding-right: rem-calc(15);
+            }
+        }
+        }
+
+}
