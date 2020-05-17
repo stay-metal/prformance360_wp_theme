@@ -1,5 +1,11 @@
-<?php 
- $term_id = _themename_get_term_page_connection($wp_query);
+
+<?php $term_id_field = get_post_meta(get_the_ID()); 
+$term_id_field = $term_id_field['__themename_relate_tag_id'][0];
+if ($term_id_field && $term_id_field!='') {
+    $term_id = $term_id_field;
+} else {
+    $term_id = _themename_get_term_page_connection($wp_query); 
+}
 if ($term_id && $term_id != '') {
     $args = array(
         'post_type' => 'post',

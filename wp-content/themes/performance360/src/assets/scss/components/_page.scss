@@ -1,4 +1,7 @@
 .c-page {
+    .c-post__meta{
+        display:none;
+    }
     background-color: #ffffff;
     border: 1px solid $grey;
     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.05);

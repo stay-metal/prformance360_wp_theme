@@ -2,7 +2,7 @@
     <div class="c-post__inner c-post-single__inner">
         <header class="c-post__header c-post-single__header">
 
-            <?php _themename_post_meta(); ?>
+            <?php _themename_single_page_meta(); ?>
 
             <h1 class="c-post__title c-post-single__title">
                 <a href="<?php the_permalink(); ?>" title = "<?php the_title_attribute(); ?>" ><?php the_title(); ?></a>
