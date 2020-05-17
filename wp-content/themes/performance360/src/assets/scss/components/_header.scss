@@ -151,11 +151,8 @@
             &__soc {
                 display:block;
             }
-            &__mobile-menu {
-                display:none;
-            } 
             &__menu{
-                display:block;      
+                display:none;      
             }
             &__search-mobile {
                 margin-left: auto;
@@ -176,6 +173,18 @@
         // background-color: purple;
     }
 }
+
+@include breakpoint('xmobile') {
+    .c-header {
+        &__mobile-menu {
+            display:none;
+        }
+        &__menu{
+            display:block;      
+        }
+    }
+}
+
 @include breakpoint('medium') {
     .c_header__menu_100width {
         margin: 0;
