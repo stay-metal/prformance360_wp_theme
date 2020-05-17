@@ -82,6 +82,11 @@
     padding: rem-calc(23) 0;
     color: $primary-black;
     &__logo {
+        a {
+            &:hover,&:focus {
+                text-decoration: none!important;
+            }
+        }
         font-size: rem-calc(28);
         img {
             max-width: 276px;

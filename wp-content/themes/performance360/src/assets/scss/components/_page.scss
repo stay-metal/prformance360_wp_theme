@@ -11,3 +11,63 @@
         font-weight: 600;
     }
 }
+.c-term-page {
+    &-sidebar{
+        padding-top: rem-calc(16);
+    }
+    &-header {
+        &__title{
+            // padding-top: rem-calc(35);
+            // display: none;
+            font-style: normal;
+            font-weight: bold;
+            font-size: rem-calc(48);
+            line-height: rem-calc(58);
+            width:35%;
+            min-width: 17.875rem;
+        }
+        &__line {
+            margin-left: 2.5rem;
+            width:100%;
+            height: rem-calc(50);
+            border-bottom: 1px solid $primary-gray;
+        }
+    }
+}
+
+@include breakpoint('small') {
+    .c-term-page{
+        &-header{
+            &__title{
+                font-size: rem-calc(30);
+            }
+        }
+    }
+    }
+@include breakpoint('mobile') {  
+    .c-term-page{
+        &-header{
+            &__title{
+                font-size: rem-calc(30);
+            }
+        }
+    }
+    } 
+@include breakpoint('medium') {
+    .c-term-page{
+        &-header{
+            &__title{
+                font-size: rem-calc(48);
+            }
+        }
+    }
+    }
+@include breakpoint('large') {
+    .c-term-page{
+        &-header{
+            &__title{
+                font-size: rem-calc(48);
+            }
+        }
+    }
+     }
