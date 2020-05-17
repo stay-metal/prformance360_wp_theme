@@ -113,14 +113,12 @@ if (!function_exists('_themename_footer_widget_sidebar')) {
   // Load more 
   function _themename_loadmore_ajax_handler(){
 
+
     $is_home = json_decode( stripslashes( $_POST['is_home'] ), true );
     $args = json_decode( stripslashes( $_POST['query'] ), true );
     $args['paged'] = $_POST['page'] + 1;
     $args['post_status'] = 'publish';
-
-    var_dump($_POST['query']);
-    die;
-    
+     
    if ( $is_home ) {
         query_posts( $args );
       
