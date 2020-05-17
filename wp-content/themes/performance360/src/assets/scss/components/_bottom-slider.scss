@@ -1,0 +1,61 @@
+.slider-container {
+    padding: 40px 100px;
+    background-color: $primary-pink;
+
+    .slider-name {
+        font-size: 22px;
+        text-transform: uppercase;
+    }
+
+    .carousel-slider-item {
+        &__image {
+            position: absolute;
+            top: 0;
+            padding-bottom: 75%;
+            width: 100%;
+            overflow: hidden;
+        }
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        &__imageholder {
+            padding-bottom: 75%;
+            overflow: hidden;
+        }
+        &__meta {
+            background-color: #fff;
+        }
+    }
+
+    .o-row {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+        background: #fff;
+    }
+
+    .owl-theme .owl-dots .owl-dot span {
+        background: #fff;
+    }
+
+    .owl-dot {
+        &.active {
+            span {
+                background: #fff;
+                border: 2px solid red;
+            }
+        }
+    }
+
+    @include breakpoint('large') {
+        .owl-dots {
+            position: absolute;
+            top: -30px;
+            right: 0;
+        }
+    }
+}

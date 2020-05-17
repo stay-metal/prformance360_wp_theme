@@ -15,4 +15,22 @@
         <?php } ?>
     </div>
 </div>
+
+<?php $slider_id = get_theme_mod( '_themename_slider_tag_id', ''); ?>
+<?php $tag = get_tag($slider_id) ?>
+<?php $slider_query = new WP_Query(array( 'tag_id' => $slider_id )); ?>
+<?php if ( $slider_query->have_posts() ) { ?>
+    <div class="slider-container">
+        <div class="slider-name"><?php echo $tag->name; ?></div>
+        <div class="owl-carousel owl-theme js_slider-carousel">
+            <?php while ($slider_query->have_posts() ) { ?>
+                <?php $slider_query->the_post(); ?>
+                <?php get_template_part( 'template-parts/post/content', 'slider'); ?>
+            <?php } ?> 
+        </div>      
+            <?php// the_posts_pagination(); ?>
+        <?php } else { ?>
+            <?php get_template_part( 'template-parts/post/content-none'); ?>
+        <?php } ?>
+    </div>
 <?php get_footer(); ?>

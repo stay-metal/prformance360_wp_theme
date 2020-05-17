@@ -4,6 +4,9 @@
 @import './settings/break-points';
 @import './settings/typography';
 
+@import './owl/owl.carousel.scss';
+@import './owl/owl.theme.default.scss';
+
 @import './tools/units';
 @import './tools/breakpoint';
 
@@ -42,6 +45,7 @@ $fa-font-path: '../fonts/webfonts';
 @import './components/media';
 @import './components/load-more';
 @import './components/sidebar';
+@import './components/bottom-slider';
 
 @import './utils/helpers';
 @import './utils/flex';
