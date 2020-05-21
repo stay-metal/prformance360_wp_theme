@@ -282,6 +282,7 @@
         &__meta{
             .c-post__tags-link{
                 padding: 4px;
+                white-space: nowrap;
                 font-size: rem-calc(12);
             }
         }
