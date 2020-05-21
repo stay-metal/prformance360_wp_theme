@@ -121,6 +121,9 @@
     }
 }
 @include breakpoint('small') {
+    .c-header__soc {
+        display: none;
+    }
     .c-header {
         padding: rem-calc(10 0 10 0);
             &__soc {
@@ -148,9 +151,6 @@
     }
     .c-header {
         padding: rem-calc(0 0 25 0);
-            &__soc {
-                display:block;
-            }
             &__menu{
                 display:none;      
             }
@@ -175,17 +175,18 @@
 }
 
 @include breakpoint('xmobile') {
+    .c-header__soc {
+        display: block;
+    }
     .c-header {
-        &__mobile-menu {
-            display:none;
-        }
         &__menu{
-            display:block;      
+            display: none;      
         }
     }
 }
 
 @include breakpoint('medium') {
+
     .c_header__menu_100width {
         margin: 0;
         width: calc(66.66667% - 1.25rem);

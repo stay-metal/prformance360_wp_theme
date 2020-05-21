@@ -50,14 +50,14 @@
         );
 
         //Homepage settings
-        $wp_customize->add_setting('_themename_slider_tag_id', array(
+        $wp_customize->add_setting('_themename_slider_cat_id', array(
             'default' => '',
             'sanitize_callback' => 'sanitize_text_field'
         ));
 
-        $wp_customize->add_control('_themename_slider_tag_id', array(
+        $wp_customize->add_control('_themename_slider_cat_id', array(
             'type' => 'text',
-            'label' => esc_html('Id метки для слайдера'),
+            'label' => esc_html('Id категории для слайдера'),
             'section' => 'static_front_page'
         ));
 

@@ -31,7 +31,7 @@ const homePageSlider = document.querySelector('.js_slider-carousel');
 if (homePageSlider) {
     jQuery(homePageSlider).owlCarousel({
         loop: true,
-        margin: 10,
+        margin: 20,
         items: 4,
         responsiveClass: true,
         dots: true,

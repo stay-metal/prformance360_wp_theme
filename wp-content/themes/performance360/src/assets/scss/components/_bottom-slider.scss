@@ -5,6 +5,11 @@
     .slider-name {
         font-size: 22px;
         text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .c-post__meta {
+        padding: 0 20px;
     }
 
     .carousel-slider-item {
@@ -25,7 +30,11 @@
             overflow: hidden;
         }
         &__meta {
+            padding: 7px 0px;
             background-color: #fff;
+        }
+        &__title {
+            margin-top: 5px;
         }
     }
 
@@ -42,11 +51,16 @@
         background: #fff;
     }
 
-    .owl-dot {
+    .owl-theme .owl-dots .owl-dot {
+        span {
+            border: 5px solid $primary-pink;
+            width: 20px;
+            height: 20px;
+        }
         &.active {
             span {
                 background: #fff;
-                border: 2px solid red;
+                border: 5px solid red;
             }
         }
     }
@@ -54,7 +68,7 @@
     @include breakpoint('large') {
         .owl-dots {
             position: absolute;
-            top: -30px;
+            top: -50px;
             right: 0;
         }
     }
