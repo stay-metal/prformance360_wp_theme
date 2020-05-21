@@ -185,9 +185,6 @@
             font-size: rem-calc(14);
             text-transform: uppercase;
         }
-        a:last-of-type {
-            padding-right: 0;
-        }
         &-single{
             margin-top: rem-calc(20);
             ul {
@@ -277,6 +274,7 @@
         }
         &__meta{
             .c-post__tags-link{
+                padding: 4px;
                 font-size: rem-calc(12);
             }
         }

@@ -1,14 +1,5 @@
-// HEADER SOC FIX
-@media only screen and (min-width: 375px) and (max-width: 500px)  {
-
-        .c-header__soc .menu-social-menu-container {
-            display: none;
-        }
-
-    }
 // HEADER TOP MENU
 @media only screen and (min-width: 375px) and (max-width: 526px)  {
-
     .c-header__topnav .menu > .menu-item > a {
         font-size: 0.7rem;
     }
@@ -16,7 +7,6 @@
 }
 
 @media only screen  and (max-width: 580px)  {
-
     .c-term-page-header__title {
         width: auto;
         min-width: auto;

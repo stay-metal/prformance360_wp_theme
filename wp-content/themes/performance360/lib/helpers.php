@@ -1,8 +1,9 @@
 <?php
 
 function _themename_post_meta() { ?>
+    <?php $hasTags = _themename_loop_tags() != ''; ?>
     <div class="o-row c-post__meta" >
-        <?php if(_themename_loop_tags() != '') { ?>
+        <?php if ($hasTags) { ?>
         <div class="c-post__tags u-align-middle">
             <?php echo _themename_loop_tags(); ?>
         </div>
