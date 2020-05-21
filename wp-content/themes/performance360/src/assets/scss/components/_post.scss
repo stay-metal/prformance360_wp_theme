@@ -6,6 +6,15 @@
 }
 .c-post {
 
+    &__meta {
+        display: flex;
+        align-items: baseline;
+    }
+
+    &__time {
+        margin-left: 20px;
+    }
+
     &-term {
         &__thumbnail-container {
             width: 35%;
@@ -171,9 +180,7 @@
         padding: rem-calc(20px);
     }
     &__meta {
-        padding: rem-calc(0 0 0 5);
         min-height: rem-calc(24);
-
         color: $dark-grey;
     }
     &__tags {
@@ -181,7 +188,7 @@
         &-link {
             color: $primary-blue;
             font-weight: 600;
-            padding-right: rem-calc(8);
+            margin-right: rem-calc(8);
             font-size: rem-calc(14);
             text-transform: uppercase;
         }
