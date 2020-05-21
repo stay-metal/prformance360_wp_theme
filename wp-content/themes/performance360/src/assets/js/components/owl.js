@@ -39,11 +39,11 @@ if (homePageSlider) {
         responsive: {
             0: {
                 items: 1,
-                nav: true,
-                dotsEach: true
+                nav: false,
+                dots: true
             },
             600: {
-                items: 3,
+                items: 1,
                 nav: false,
                 dotsEach: true
             },

@@ -1,5 +1,4 @@
 .slider-container {
-    padding: 40px 100px;
     background-color: $primary-pink;
 
     .slider-name {
@@ -72,4 +71,17 @@
             right: 0;
         }
     }
+}
+
+@include breakpoint('small') {
+    .slider-container {
+        padding: 20px 15px;
+    }
+}
+
+@include breakpoint('medium') {
+    .slider-container {
+        padding: 40px 100px;
+    }
+
 }
