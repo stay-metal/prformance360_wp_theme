@@ -201,8 +201,26 @@ function _themename_single_tags()
     'order'         => 'ASC',
   ));
   $tag_list = '';
-  foreach ($tags as $tag) {
-    $tag_list .= '<a href="' . get_tag_link($tag->term_id) . '" class="c-post-single__tags-link">#' . $tag->name . '</a> ';
+  $i = 1;
+  if (!empty($tags)) {
+    foreach ($tags as $tag) {
+      $color = get_term_meta($tag->term_id, '_themename_tag_color', true);
+      $bgColor = get_term_meta($tag->term_id, '_themename_tag_bg_color', true);
+      if (!empty($color)) {
+        $tag->color = $color;
+      } else {
+        $tag->color = 'AD6868';
+      }
+      if (!empty($bgColor)) {
+        $tag->bgColor = "#$bgColor";
+      } else {
+        $tag->bgColor = 'rgba(255, 0, 0, 0)';
+      }
+      if ($i <= 2) {
+        $tag_list .= '<a href="' . get_page_link($tag->page_rel) . '" class="c-post__tags-link" style="color:#' . $tag->color . '; background-color: ' . $tag->bgColor . '">' . $tag->name . '</a> ';
+      }
+      $i++;
+    }
   }
   echo $tag_list;
 }
@@ -235,23 +253,21 @@ function _themename_loop_tags()
     $page = get_term_meta($tag->term_id, '_themename_page_field', true);
     $color = get_term_meta($tag->term_id, '_themename_tag_color', true);
     $bgColor = get_term_meta($tag->term_id, '_themename_tag_bg_color', true);
-    if (!empty($page)) {
-      $tag->page_rel = $page;
-      if (!empty($color)) {
-        $tag->color = $color;
-      } else {
-        $tag->color = 'AD6868';
-      }
-      if (!empty($bgColor)) {
-        $tag->bgColor = "#$bgColor";
-      } else {
-        $tag->bgColor = 'rgba(255, 0, 0, 0)';
-      }
-      $tags_final_array[] = $tag;
+    $tag->page_rel = $page;
+  
+    if (!empty($color)) {
+      $tag->color = $color;
+    } else {
+      $tag->color = 'AD6868';
     }
+    if (!empty($bgColor)) {
+      $tag->bgColor = "#$bgColor";
+    } else {
+      $tag->bgColor = 'rgba(255, 0, 0, 0)';
+    }
+    $tags_final_array[] = $tag;
   }
-  // var_dump( $tags_final_array);
-  // die;
+
   $tag_list = '';
   $i = 1;
   if (!empty($tags_final_array)) {
