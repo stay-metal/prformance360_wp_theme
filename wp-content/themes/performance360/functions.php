@@ -261,6 +261,7 @@ function _themename_loop_tags()
       $tag->color = 'AD6868';
     }
     if (!empty($bgColor)) {
+      $bgClass = 'c-post__tag--with-background';
       $tag->bgColor = "#$bgColor";
     } else {
       $tag->bgColor = 'rgba(255, 0, 0, 0)';
@@ -273,7 +274,7 @@ function _themename_loop_tags()
   if (!empty($tags_final_array)) {
     foreach ($tags_final_array as $tag) {
       if ($i <= 2) {
-        $tag_list .= '<a href="' . get_page_link($tag->page_rel) . '" class="c-post__tags-link" style="color:#' . $tag->color . '; background-color: ' . $tag->bgColor . '">' . $tag->name . '</a> ';
+        $tag_list .= '<a href="' . get_page_link($tag->page_rel) . '" class="c-post__tags-link '. $bgClass .'" style="color:#' . $tag->color . '; background-color: ' . $tag->bgColor . '">' . $tag->name . '</a> ';
       }
       $i++;
     }
