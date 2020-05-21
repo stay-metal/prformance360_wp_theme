@@ -22,8 +22,6 @@ a {
     // border-bottom: 1px solid;
     text-decoration: none;
     color: $primary-blue;
-    word-break: break-all;
-    word-break: break-word;
     &:visited {
         // border-bottom: 1px solid;
     }
@@ -69,7 +67,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: $header-margin-bottom;
     margin-top:  $header-margin-bottom;
     text-rendering: optimizeLegibility;
-    word-break: break-word;
     small {
         line-height: 0;
         color: $header-small-font-color;
@@ -161,7 +158,6 @@ pre {
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;
     > code {
         display: block;
         padding: 1rem 1.5rem;
