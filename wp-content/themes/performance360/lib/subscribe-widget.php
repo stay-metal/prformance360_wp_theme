@@ -35,9 +35,10 @@ class _themename_Subscribe_Widgets extends WP_Widget {
              echo  '<div class="widget_subscribe_widget__title">'.$title.'</div>' ;
         }
         echo '<div class="widget_subscribe_widget__container">
-        <form role="search" method="get" class="widget_subscribe_widget__form" action="">
+        <form role="search" method="POST" class="widget_subscribe_widget__form" action="">
         <label class="widget_subscribe_widget__form-label">
-            <input type="search" class="widget_subscribe_widget__form-input" placeholder="e-mail" value="" name="s" />
+            <input type="search" class="widget_subscribe_widget__form-input" placeholder="e-mail" value="" name="widget_subscribe_widget__form-email" />
+            <input type="hidden" id="ajax_url" value="'.admin_url('admin-ajax.php').'"/>
             <button class="widget_subscribe_widget__form-submit" type="submit">Подписаться</button>
         </label>
  
@@ -60,4 +61,22 @@ function _themename_register_subscribe_widget(){
 }
 
 add_action('widgets_init', '_themename_register_subscribe_widget');
+
+add_action( 'wp_ajax_performance_subscribe_send', 'performance_send_subscribe' );
+add_action( 'wp_ajax_nopriv_performance_subscribe_send', 'performance_send_subscribe' );
+
+function performance_send_subscribe() {
+    $email =  $_POST['email'];
+    $to = "vad.lambrianov@yandex.ru";
+    $subject = "Запрос на подписку";
+    $message = "Новый запрос на подписку. /n
+    e-mail: '. $email .'"; 
+
+    if( wp_mail($to, $subject, $message) ){
+        return true;
+    } else {
+        return false;
+    }
+    die(); 
+}
 
