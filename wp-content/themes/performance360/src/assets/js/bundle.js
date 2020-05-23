@@ -4,4 +4,5 @@ import './components/slider';
 import './components/navigation';
 import './components/masonry';
 import './components/owl';
+import './components/send-subscribe';
 

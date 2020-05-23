@@ -1,0 +1,117 @@
+$outline: #fa8a5e;
+$outline-secondary: #0d58b7;
+$dark: #0b3a83;
+$button-color: #0c58a7;
+$button-color-dark: #0b3a83;
+
+/* *1*: make it "untouchable"
+ **/
+
+.is-hidden--off-flow {
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  z-index: -10;   /* *1* */
+  visibility: hidden;   /* *1* */
+}
+
+.is-shown--off-flow {
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+  visibility: visible;
+}
+
+.c-content {
+  padding: 30px;
+    text-align: left;
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+
+.l-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  margin: 0 auto;
+  z-index: 2;
+  text-align: center;
+}
+
+.l-modal__shadow {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: block;
+  background: #161616;
+  opacity: 0.92;
+  z-index: -1;
+  cursor: pointer;
+}
+
+.l-modal__body {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.c-popup {
+  display: inline-block;
+  text-align: center;
+  background: white;
+  max-width: 400px;
+  width: 90%;
+  line-height: 1.48;
+}
+
+.c-popup__img {
+  max-width: 100px;
+  margin: 0 auto;
+  padding: 60px 60px 40px;
+  ;
+}
+
+.h-img-resp {
+  max-width: 100%;
+}
+
+.c-popup__title {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 0;
+  margin-bottom: 6px;
+  font-size: 1.4em;
+  color: #3a3a3a;
+  font-weight: normal;
+}
+
+.c-popup__description {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    /* color: blue; */
+    font-size: 1.1em;
+    color: $primary-black;
+}
+
+.l-modal__close {
+    height: 0px;
+    float: right;
+    margin-right: 11px;
+    margin-top: 5px;
+    opacity: 0.6;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.1rem;
+}
+.l-modal__close:hover {
+  transition: 0.2s;
+  color: $primary-blue;
+}
+.c-popup__note {
+  opacity: 0.2;
+  font-size: 1em;
+  margin-top: 6px;
+}
