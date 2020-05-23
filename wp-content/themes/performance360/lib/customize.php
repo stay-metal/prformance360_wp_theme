@@ -61,6 +61,18 @@
             'section' => 'static_front_page'
         ));
 
+        //Homepage settings
+        $wp_customize->add_setting('_themename_slider_max_number_of_posts', array(
+            'default' => '',
+            'sanitize_callback' => 'sanitize_text_field'
+        ));
+
+        $wp_customize->add_control('_themename_slider_max_number_of_posts', array(
+            'type' => 'text',
+            'label' => esc_html('Максимальное количество постов для слайдера'),
+            'section' => 'static_front_page'
+        ));
+
         
     }
 
