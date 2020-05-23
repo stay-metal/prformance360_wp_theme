@@ -10,7 +10,7 @@ class pop_posts_widget extends WP_Widget
             'pop_posts_widget',
             esc_html('Популятрные посты'),
             array(
-                'description' => esc_html('Виджет вывода 5 популятрных постов')
+                'description' => esc_html('Виджет вывода 5 популярных постов')
             )
         );
     }
