@@ -23,6 +23,20 @@
     }
 }
 
+.widget_pop_posts_widget {
+    .siderbar-post__widget {
+        position: relative;
+        overflow: hidden;
+        width: 50%;
+        height: 70px;
+
+        img {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    }
+}
 //Posts Widget
  .widget_posts_widget {
      &__post-container {
@@ -41,7 +55,6 @@
          line-height: rem-calc(17); 
          &_full-width {
              width:100%;
-             padding-left: 0;
          }
          a {
              

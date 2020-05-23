@@ -9,6 +9,7 @@ require_once('lib/customize.php');
 require_once('lib/metaboxes.php');
 require_once('lib/posts-widget.php');
 require_once('lib/subscribe-widget.php');
+require_once('lib/sidebar_pop_posts_widget.php');
 
 
 
@@ -24,6 +25,23 @@ add_action("_themename_before_loop_start", "_themename_show_medium_posts", 2);
 //         $query -> set ('posts_per_page', 2);
 //     }
 // }
+
+/*
+ * Set post views count using post meta
+ */
+function setPostViews($postID) {
+  $countKey = 'post_views_count';
+  $count = get_post_meta($postID, $countKey, true);
+  if($count==''){
+      $count = 0;
+      delete_post_meta($postID, $countKey);
+      add_post_meta($postID, $countKey, '0');
+  }else{
+      $count++;
+      update_post_meta($postID, $countKey, $count);
+  }
+}
+
 if (!function_exists('_themename_show_big_post')) {
   function _themename_show_big_post()
   {
@@ -331,7 +349,7 @@ function _themename_thumbs_sizes()
 {
   add_image_size('_themename-main-loop-thumb', 300, 150, array('center', 'center'));
   add_image_size('_themename-single-thumb', 845, 300, array('center', 'center'));
-  add_image_size('_themename-posts-widget-thumb', 117, 70, false);
+  add_image_size('_themename-posts-widget-thumb', 117, 70, array('center', 'center'));
 }
 add_action('after_setup_theme', '_themename_thumbs_sizes');
 
