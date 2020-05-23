@@ -36,9 +36,6 @@
                         <div class="c-post__tags c-post-single__tags">
                             <?php 
                                 if (has_tag()) { 
-                                //    $tags_list = get_the_tag_list( '#',' #','');
-                                //    $tags_list = get_the_tag_list('<ul><li>','</li><li>','</li></ul>');
-                                //    echo $tags_list;
                                 _themename_single_tags();
                                 } ?>
                          </div>

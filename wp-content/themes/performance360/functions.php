@@ -205,19 +205,8 @@ function _themename_single_tags()
   if (!empty($tags)) {
     foreach ($tags as $tag) {
       $color = get_term_meta($tag->term_id, '_themename_tag_color', true);
-      $bgColor = get_term_meta($tag->term_id, '_themename_tag_bg_color', true);
-      if (!empty($color)) {
-        $tag->color = $color;
-      } else {
-        $tag->color = 'AD6868';
-      }
-      if (!empty($bgColor)) {
-        $tag->bgColor = "#$bgColor";
-      } else {
-        $tag->bgColor = 'rgba(255, 0, 0, 0)';
-      }
       if ($i <= 2) {
-        $tag_list .= '<a href="' . get_page_link($tag->page_rel) . '" class="c-post__tags-link" style="color:#' . $tag->color . '; background-color: ' . $tag->bgColor . '">' . $tag->name . '</a> ';
+        $tag_list .= '<a href="' . get_page_link($tag->page_rel) . '" class="c-post__tags-link" style="color:#' . $tag->color . '; background-color: ' . $tag->bgColor . '">#' . $tag->name . '</a> ';
       }
       $i++;
     }
@@ -249,24 +238,27 @@ function _themename_loop_tags()
     'order'         => 'ASC',
   ));
   $tags_final_array = [];
+
   foreach ($tags as $tag) {
     $page = get_term_meta($tag->term_id, '_themename_page_field', true);
     $color = get_term_meta($tag->term_id, '_themename_tag_color', true);
     $bgColor = get_term_meta($tag->term_id, '_themename_tag_bg_color', true);
     $tag->page_rel = $page;
   
-    if (!empty($color)) {
-      $tag->color = $color;
-    } else {
-      $tag->color = 'AD6868';
+    if (!empty($page)) {
+      if (!empty($color)) {
+        $tag->color = $color;
+      } else {
+        $tag->color = 'AD6868';
+      }
+      if (!empty($bgColor)) {
+        $bgClass = 'c-post__tag--with-background';
+        $tag->bgColor = "#$bgColor";
+      } else {
+        $tag->bgColor = 'rgba(255, 0, 0, 0)';
+      }
+      $tags_final_array[] = $tag;
     }
-    if (!empty($bgColor)) {
-      $bgClass = 'c-post__tag--with-background';
-      $tag->bgColor = "#$bgColor";
-    } else {
-      $tag->bgColor = 'rgba(255, 0, 0, 0)';
-    }
-    $tags_final_array[] = $tag;
   }
 
   $tag_list = '';

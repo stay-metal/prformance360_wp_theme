@@ -2,13 +2,14 @@
 
 function _themename_post_meta() { ?>
     <?php $hasTags = _themename_loop_tags() != ''; ?>
+    <?php if (!$hasTags) $timeNoTagsClass = 'c-post__time--no-tags' ?>
     <div class="c-post__meta" >
         <?php if ($hasTags) { ?>
         <div class="c-post__tags u-align-middle">
             <?php echo _themename_loop_tags(); ?>
         </div>
         <?php } ?>
-        <div class="c-post__time u-flex u-align-middle">
+        <div class="c-post__time <?php echo $timeNoTagsClass; ?> u-flex u-align-middle">
             <?php  _themename_post_time(); ?>
         </div>
     </div>               
