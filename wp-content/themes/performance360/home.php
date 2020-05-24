@@ -27,18 +27,20 @@
 <?php $slider_query = new WP_Query(array( 'cat' => $slider_id,
     'posts_per_page' => $finalNumberOfPosts ));
 ?>
-<?php if ( $slider_query->have_posts() ) { ?>
-    <div class="slider-container">
-        <div class="slider-name"><?php echo $cat->name; ?></div>
-        <div class="owl-carousel owl-theme js_slider-carousel">
-            <?php while ($slider_query->have_posts() ) { ?>
-                <?php $slider_query->the_post(); ?>
-                <?php get_template_part( 'template-parts/post/content', 'slider'); ?>
-            <?php } ?> 
-        </div>      
-            <?php// the_posts_pagination(); ?>
-        <?php } else { ?>
-            <?php get_template_part( 'template-parts/post/content-none'); ?>
-        <?php } ?>
-    </div>
+<div class="slider-outer-container">
+    <?php if ( $slider_query->have_posts() ) { ?>
+        <div class="slider-container">
+            <div class="slider-name"><?php echo $cat->name; ?></div>
+            <div class="owl-carousel owl-theme js_slider-carousel">
+                <?php while ($slider_query->have_posts() ) { ?>
+                    <?php $slider_query->the_post(); ?>
+                    <?php get_template_part( 'template-parts/post/content', 'slider'); ?>
+                <?php } ?> 
+            </div>      
+                <?php// the_posts_pagination(); ?>
+            <?php } else { ?>
+                <?php get_template_part( 'template-parts/post/content-none'); ?>
+            <?php } ?>
+        </div>
+</div>
 <?php get_footer(); ?>
