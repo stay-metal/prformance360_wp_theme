@@ -6,6 +6,14 @@
 
 }
 
+@media only screen and (min-width: 376px) and (max-width: 422px)  {
+    .c-header img {
+        max-width: 236px;
+    }
+
+}
+
+
 @media only screen  and (max-width: 580px)  {
     .c-term-page-header__title {
         width: auto;

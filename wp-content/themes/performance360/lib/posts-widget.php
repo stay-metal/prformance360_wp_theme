@@ -65,12 +65,17 @@ class _themename_Posts_Widgets extends WP_Widget {
                                 echo '<a href="'.get_the_permalink() .'"><div class="u-bg-image widget_posts_widget__post-thumbnail" style="background-image: url('. get_the_post_thumbnail_url() .'); " >';
                                     // the_post_thumbnail( '_themename-posts-widget-thumb' );
                                 echo '</div></a>';
-                            }
-                            if(get_the_post_thumbnail() !== '') {
-                            echo '<div class="widget_posts_widget__post-title">';
                             } else {
-                                echo '<div class="widget_posts_widget__post-title widget_posts_widget__post-title_full-width">'; 
+                                echo '<a href="'.get_the_permalink() .'"><div class="u-bg-image widget_posts_widget__post-thumbnail" style="background-image: url('. get_template_directory_uri() .'/dist/assets/images/placeholder.png); " >';
+                                    // the_post_thumbnail( '_themename-posts-widget-thumb' );
+                                echo '</div></a>';                                
                             }
+                            // if(get_the_post_thumbnail() !== '') {
+                            echo '<div class="widget_posts_widget__post-title">';
+                            // } 
+                            // else {
+                            //     echo '<div class="widget_posts_widget__post-title widget_posts_widget__post-title_full-width">'; 
+                            // }
                            echo ' <a href="'.get_the_permalink() .'">' .get_the_title() .'</a>';
                             echo '</div>';
                         echo '</div>';

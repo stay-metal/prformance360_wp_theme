@@ -51,7 +51,7 @@ class pop_posts_widget extends WP_Widget
                 $has_post_thumb = get_the_post_thumbnail() !== '';
                 echo '<div class="widget_posts_widget__post-container">';
                 echo '<a class="siderbar-post__widget" href="' . get_the_permalink() . '">';
-                echo $has_post_thumb ? '<img src="' . get_the_post_thumbnail_url() . '" /></a>' : '<img src="' . get_stylesheet_directory_uri() . '/src/assets/images/placeholder.png" />';
+                echo $has_post_thumb ? '<img src="' . get_the_post_thumbnail_url() . '" /></a>' : '<img src="' . get_stylesheet_directory_uri() . '/dist/assets/images/placeholder.png" />';
                 echo '<div class="widget_posts_widget__post-title widget_posts_widget__post-title_full-width">';
                 echo '<a href="' . get_the_permalink() . '">' . get_the_title() . '</a>';
                 echo '</div>';

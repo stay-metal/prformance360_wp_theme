@@ -2,6 +2,7 @@ import $ from 'jquery';
 
   
   $('.js-modal-hide').click(function(){
+
     $('.js-modal-shopify').toggleClass('is-shown--off-flow').toggleClass('is-hidden--off-flow');
   });
   $('.l-modal__close').click(function(){
@@ -9,11 +10,12 @@ import $ from 'jquery';
 });
 
 $(".widget_subscribe_widget__form-submit").click(function(e){
+    e.preventDefault(); // if the clicked element is a link
 
     var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
     var address =  $(".widget_subscribe_widget__form-input").val();
-    e.preventDefault(); // if the clicked element is a link
+
     if(reg.test(address) == false) {
         $( ".с-popup_description-subscribe" ).html('Введите корректный e-mail адрес.');
         $('.js-modal-shopify').toggleClass('is-shown--off-flow').toggleClass('is-hidden--off-flow');

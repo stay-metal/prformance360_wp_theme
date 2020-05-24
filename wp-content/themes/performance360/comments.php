@@ -4,7 +4,6 @@ if ( post_password_required() ) {
 }
 ?>
 <div id="comments" class="c-comments">
-    <?php if (have_comments()) { ?>
         <h2 class="c-comments__title">
             <?php
             printf(
@@ -28,5 +27,4 @@ if ( post_password_required() ) {
             ); ?>
         </ul>
         <?php the_comments_pagination() ?>
-    <?php } ?>
 </div>

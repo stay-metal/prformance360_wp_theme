@@ -10,7 +10,7 @@
     <?php if (!$hasThumbnail) { ?>
         <div class="carousel-slider-item__imageholder">
             <a class="carousel-slider-item__image" onclick="return false;">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/src/assets/images/placeholder.png" />
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/assets/images/placeholder.png" />
             </a>
         </div>
     <?php } ?>
