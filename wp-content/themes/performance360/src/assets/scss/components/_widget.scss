@@ -35,6 +35,8 @@
         }
     }
 }
+
+
 //Posts Widget
  .widget_posts_widget {
      &__post-container {
@@ -69,8 +71,14 @@
          }
      }
     }
+    .widget_subscribe_widget {
+        max-width: 320px;
+        padding: 0px 20px;
+        margin-top: 50px;
+    }
     aside {
         .widget_subscribe_widget {
+            max-width: 290px;
             padding: rem-calc(21 22 20 22);
             background: $primary-pink!important;
 
@@ -182,5 +190,11 @@
             margin-bottom: rem-calc(5);
             display: inline-block;
         }
+    }
+}
+
+@include breakpoint('large') {
+    .widget_subscribe_widget {
+       margin-top: 0;
     }
 }
