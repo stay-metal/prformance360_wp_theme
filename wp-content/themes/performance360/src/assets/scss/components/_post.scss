@@ -424,7 +424,15 @@
 }
 @include breakpoint('small') {
 .c-post {
+    &-single{
+        &__title{
+            a {
+            font-size: rem-calc(23);
+            }
+        }
+    }
     &-term {
+
         &__thumbnail {
             // width: 100%;
             // height: rem-calc(170);
@@ -436,6 +444,13 @@
 }
 @include breakpoint('mobile') {
     .c-post {
+        &-single{
+            &__title{
+                a {
+                font-size: rem-calc(28);
+                }
+            }
+        }
         &-medium {
             height: rem-calc(142);
         }
@@ -446,6 +461,13 @@
 } 
 @include breakpoint('medium') {
     .c-post {
+        &-single{
+            &__title{
+                a {
+                font-size: rem-calc(32);
+                }
+            }
+        }
         &-medium {
             height: rem-calc(247);
         }
@@ -456,6 +478,13 @@
 }
 @include breakpoint('large') {
     .c-post {
+        &-single{
+            &__title{
+                a {
+                font-size: rem-calc(48);
+                }
+            }
+        }
         &-medium {
             height: rem-calc(247);
         }
