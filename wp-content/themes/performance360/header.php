@@ -10,7 +10,7 @@
             <div class="c-header">
                 <div class="o-container">
                     <div class="o-row u-flex u-flex-wrap-reverse">
-                        <div class="o-row__column o-row__column--span-12 o-row__column--span-4@medium u-flex">    
+                        <div class="c-header__menues o-row__column o-row__column--span-12 o-row__column--span-4@medium u-flex">    
                         <div class= "c-header__mobile-menu js_toggle-hamburger-menu" data-open="false">
                         <label class="c-header__hamburger">
                             <span class="c-header__hamburger-navicon"></span>
