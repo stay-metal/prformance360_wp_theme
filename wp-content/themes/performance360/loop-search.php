@@ -10,7 +10,7 @@ if ( have_posts() ) { ?>
                     ?> </h1>
      </header> 
         </div>
-    <div class="o-container o-container_masonry u-margin-left-0 u-margin-right-0  u-padding-left-0 u-padding-right-0" >
+    <div class="o-container o-container_masonry" >
 
         <?php while (have_posts() ) { ?>
             <?php the_post(); ?>
