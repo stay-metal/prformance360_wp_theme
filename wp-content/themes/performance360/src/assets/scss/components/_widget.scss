@@ -6,13 +6,11 @@
 }
 
 .c-sidebar-widget {
-    // background-color: #ffffff;
-    // border: 1px solid $grey;
-    // box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.05);
-    // padding: rem-calc(20);
+    padding-bottom: 10px;
+    
     &__title {
         margin: 0px;
-        padding: rem-calc(21 22 20 22);
+        padding: rem-calc(21 22 0 22);
     }
     h5 {
         font-weight: 600;
@@ -27,7 +25,7 @@
     .siderbar-post__widget {
         position: relative;
         overflow: hidden;
-        width: 50%;
+        width: 70%;
         height: 70px;
 
         img {
@@ -40,9 +38,15 @@
 //Posts Widget
  .widget_posts_widget {
      &__post-container {
-        padding: rem-calc( 0 22 20 22);
+        padding: rem-calc(0 22 15 22);
         display: flex;
+
+        &:first-of-type {
+            padding: rem-calc(20 22 15 22);
+        }
      }
+
+
      &__post-thumbnail {
         background-size: cover;
         background-position: center;
@@ -50,14 +54,13 @@
         height:  rem-calc(70);
      }
      &__post-title {
-        width: rem-calc(180);
-         padding-left: rem-calc(13);
-         line-height: rem-calc(17); 
+            width: rem-calc(180);
+            padding-left: rem-calc(13);
+            line-height: rem-calc(17); 
          &_full-width {
-             width:100%;
+            width:100%;
          }
          a {
-             
             font-style: normal;
             font-weight: normal;
             font-size: rem-calc(14);           
