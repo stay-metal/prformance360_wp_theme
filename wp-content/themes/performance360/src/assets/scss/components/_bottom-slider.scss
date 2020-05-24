@@ -82,7 +82,7 @@
 
 @include breakpoint('small') {
     .slider-container {
-        padding: 10px;
+        padding: 40px 10px;
         .c-post__meta {
             display: flex;
             flex-direction: row;
