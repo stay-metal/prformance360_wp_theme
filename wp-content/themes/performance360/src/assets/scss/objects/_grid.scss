@@ -3,6 +3,7 @@ $gutter: 20;
 
 .o-container {
     max-width: rem-calc($global-width);
+    width: calc(100% - #{rem-calc($gutter)});
     margin-left: auto;
     margin-right: auto;
 }

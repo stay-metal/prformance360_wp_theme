@@ -8,7 +8,7 @@
     
 if ( $the_query->have_posts() ) { ?>
 
-    <div class="o-container o-container_masonry u-margin-left-0 u-margin-right-0  u-padding-left-0 u-padding-right-0" >
+    <div class="o-container o-container_masonry" >
 
         <?php while ($the_query->have_posts() ) { ?>
             <?php $the_query->the_post(); ?>
