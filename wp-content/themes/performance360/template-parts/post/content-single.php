@@ -28,7 +28,7 @@
 
         <footer class="c-post__footer c-post-single__footer">
             <div class="o-row">
-                <div class="o-row__column o-row__column--span-9 o-row__column--span-9@medium o-row__column--span-9@mobile">
+                <div class="o-row__column o-row__column--span-12 o-row__column--span-12@medium o-row__column--span-12@mobile u-margin-left-0 u-margin-right-0 u-padding-right-0 u-padding-left-0">
                         <?php 
                             if (has_category()) { 
                                 get_the_category_list( ', ');
@@ -39,8 +39,6 @@
                                 _themename_single_tags();
                                 } ?>
                          </div>
-                    </div>
-                    <div class="o-row__column o-row__column--span-3 o-row__column--span-3@medium o-row__column--span-12@mobile">
                     </div>
             </div>
         </footer>

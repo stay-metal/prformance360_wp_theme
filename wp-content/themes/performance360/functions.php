@@ -300,7 +300,7 @@ function _themename_loop_tags()
   $i = 1;
   if (!empty($tags_final_array)) {
     foreach ($tags_final_array as $tag) {
-      if ($i <= 2) {
+      if ($i <= 1) {
         $tag_list .= '<a href="' . get_page_link($tag->page_rel) . '" class="c-post__tags-link '. $bgClass .'" style="color:#' . $tag->color . '; background-color: ' . $tag->bgColor . '">' . $tag->name . '</a> ';
       }
       $i++;
@@ -312,10 +312,49 @@ function _themename_loop_tags()
 function _themename_single_page_cats()
 {
   global $post;
+  $tags = get_terms(array(
+    'taxonomy'      => array('post_tag'),
+    'object_ids'    =>  $post->ID,
+    'orderby'       => 'id',
+    'order'         => 'ASC',
+  ));
+  $tags_final_array = [];
+  foreach ($tags as $tag) {
+    $page = get_term_meta($tag->term_id, '_themename_page_field', true);
+    $color = get_term_meta($tag->term_id, '_themename_tag_color', true);
+    $bgColor = get_term_meta($tag->term_id, '_themename_tag_bg_color', true);
+    $tag->page_rel = $page;
+  
+    if (!empty($page)) {
+      if (!empty($color)) {
+        $tag->color = $color;
+      } else {
+        $tag->color = 'AD6868';
+      }
+      if (!empty($bgColor)) {
+        $bgClass = 'c-post__tag--with-background';
+        $tag->bgColor = "#$bgColor";
+      } else {
+        $tag->bgColor = 'rgba(255, 0, 0, 0)';
+      }
+      $tags_final_array[] = $tag;
+    }
+  }
+  // var_dump( $tags_final_array );
+
   $cats = wp_get_post_categories($post->ID);
   $tag_list = '';
   foreach ($cats as $cat) {
     $tag_list .= '<a href="' . get_category_link($cat) . '" class="c-post__tags-link" style="color:#EB5757">' . get_cat_name($cat) . '</a> ';
+  }
+  $i = 1;
+  if (!empty($tags_final_array)) {
+    foreach ($tags_final_array as $tag) {
+      if ($i <= 1) {
+        $tag_list .= '<a href="' . get_page_link($tag->page_rel) . '" class="c-post__tags-link '. $bgClass .'" style="color:#' . $tag->color . '; background-color: ' . $tag->bgColor . '">' . $tag->name . '</a> ';
+      }
+      $i++;
+    }
   }
   return $tag_list;
 }

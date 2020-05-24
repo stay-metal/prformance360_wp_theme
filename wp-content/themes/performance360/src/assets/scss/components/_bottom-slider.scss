@@ -5,9 +5,14 @@
 .slider-container {
     .slider-name {
         min-height: 40px;
-        font-size: 22px;
         text-transform: uppercase;
         margin-top: 10px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 36px;
+        line-height: 44px;
+        margin-bottom: 18px;
+        
     }
 
     .c-post__meta {
@@ -106,7 +111,7 @@
 
 @include breakpoint('medium') {
     .slider-container {
-        padding: 20px 15px;
+        padding: 30px 15px;
 
         .c-post__meta {
             display: flex;
