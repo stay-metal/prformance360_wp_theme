@@ -1,6 +1,8 @@
-.slider-container {
+.slider-outer-container {
     background-color: $primary-pink;
+}
 
+.slider-container {
     .slider-name {
         font-size: 22px;
         text-transform: uppercase;
@@ -73,8 +75,14 @@
     }
 }
 
+.slider-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
 @include breakpoint('small') {
     .slider-container {
+        padding: 40px 10px;
         .c-post__meta {
             display: flex;
             flex-direction: row;
@@ -101,15 +109,8 @@
     }
 }
 
-@include breakpoint('medium') {
-    .slider-container {
-        padding: 40px 10px;
-    }
-}
-
 @include breakpoint('xlarge') {
     .slider-container {
-        padding: 40px 100px;
         .c-post__meta {
             display: flex;
             flex-direction: row;
