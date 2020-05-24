@@ -10,7 +10,7 @@
     .c-term-page-header__title {
         width: auto;
         min-width: auto;
-        white-space: nowrap;
+        line-height: rem-calc(35);
     }
     .c-term-page-header__line {
         margin-left: 1rem;
@@ -53,6 +53,12 @@
     .c-post-single__related-header-title {
         width: 56%!important;
         font-size: 1.55rem!important;
+    }
+}
+
+@media only screen  and (max-width: 900px)  {
+    .c-term-page-header__line{
+        display:none;
     }
 }
 

@@ -37,7 +37,6 @@
                     <?php get_template_part( 'template-parts/post/content', 'slider'); ?>
                 <?php } ?> 
             </div>      
-                <?php// the_posts_pagination(); ?>
             <?php } else { ?>
                 <?php get_template_part( 'template-parts/post/content-none'); ?>
             <?php } ?>
