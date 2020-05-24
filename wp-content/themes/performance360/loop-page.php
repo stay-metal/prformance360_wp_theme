@@ -2,6 +2,7 @@
 <?php $term_id_field = get_post_meta(get_the_ID()); 
 if (!empty($term_id_field['__themename_relate_tag_id']))
 $term_id_field = $term_id_field['__themename_relate_tag_id'][0];
+$default_posts_per_page = get_option( 'posts_per_page' ) ? get_option( 'posts_per_page' ) :'10';
 if ($term_id_field && $term_id_field!='') {
     $term_id = $term_id_field;
 } else {
@@ -12,7 +13,7 @@ if ($term_id && $term_id != '') {
         'post_type' => 'post',
         'tag__in' =>  $term_id,
         'paged' => 1,
-        'posts_per_page' => 3,
+        'posts_per_page' => $default_posts_per_page,
 
     );  
     $custom_query = new WP_Query( $args );
