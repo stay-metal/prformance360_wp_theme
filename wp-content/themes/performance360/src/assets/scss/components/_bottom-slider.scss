@@ -103,12 +103,13 @@
 
 @include breakpoint('medium') {
     .slider-container {
-        padding: 40px 100px;
+        padding: 40px 10px;
     }
 }
 
 @include breakpoint('xlarge') {
     .slider-container {
+        padding: 40px 100px;
         .c-post__meta {
             display: flex;
             flex-direction: row;
