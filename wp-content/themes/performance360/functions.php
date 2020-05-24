@@ -11,6 +11,7 @@ require_once('lib/posts-widget.php');
 require_once('lib/subscribe-widget.php');
 require_once('lib/sidebar_pop_posts_widget.php');
 require_once('lib/related-posts.php');
+require_once('lib/comment-callback.php');
 
 
 
@@ -140,12 +141,13 @@ function _themename_loadmore_ajax_handler()
 
 
   $is_home = json_decode(stripslashes($_POST['is_home']), true);
+  $is_search = json_decode(stripslashes($_POST['is_search']), true);
   $args = json_decode(stripslashes($_POST['query']), true);
   $args['paged'] = $_POST['page'] + 1;
   $args['post_status'] = 'publish';
 
 
-  if ($is_home) {
+  if ($is_home || $is_search) {
     query_posts($args);
 
     if (have_posts()) {
@@ -551,6 +553,63 @@ function _themename_get_term_page_connection($wp_query)
 // }
 
 
+function _themename_comment_form() {
+  
+$defaults = [
+	'fields'               => [
+		'author' => '<div class="c-comments__form-name">
+    <i class="fas fa-user"></i><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . $html_req . ' placeholder="Имя*" />
+		</div>',
+		'email'  => '<div class="c-comments__form-email">
+    <i class="fas fa-at"></i><input id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" aria-describedby="email-notes"' . $aria_req . $html_req  . ' placeholder="Email*"/>
+		</div>',
+		// 'url'    => '<p class="comment-form-url">
+		// 	<label for="url">' . __( 'Website' ) . '</label> 
+		// 	<input id="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" />
+		// </p>',
+		'cookies' => ''
+		// 	 <label for="wp-comment-cookies-consent">'. __( 'Save my name, email, and website in this browser for the next time I comment.' ) .'</label>
+		// </p>',        
+	],
+	// 'comment_field'        => '<p class="comment-form-comment">
+	// 	<label for="comment">' . _x( 'Comment', 'noun' ) . '</label>
+	// 	<textarea id="comment" name="comment" cols="45" rows="8"  aria-required="true" required="required"></textarea>
+	// </p>',
+	'comment_field'        => '<div class="c-comments__form-comment">
+		<textarea id="comment" name="comment" cols="45" rows="1"  aria-required="true" required="required" placeholder="Присоединиться к обсуждению..." class="c-comments__form-textarea"></textarea>
+	</div>',
+	// 'must_log_in'          => '<p class="must-log-in">' . 
+	// 	 sprintf( __( 'You must be <a href="%s">logged in</a> to post a comment.' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '
+	//  </p>',
+	// 'logged_in_as'         => '<p class="logged-in-as">' . 
+	// 	 sprintf( __( '<a href="%1$s" aria-label="Logged in as %2$s. Edit your profile.">Logged in as %2$s</a>. <a href="%3$s">Log out?</a>' ), get_edit_user_link(), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '
+	//  </p>',
+	// 'comment_notes_before' => '<p class="comment-notes">
+	// 	<span id="email-notes">' . __( 'Your email address will not be published.' ) . '</span>'. 
+	// 	( $req ? $required_text : '' ) . '
+	// </p>',
+	'comment_notes_before' => '',
+	'comment_notes_after'  => '',
+	'id_form'              => 'commentform',
+	'id_submit'            => 'submit',
+	'class_form'           => 'c-comments__form',
+	'class_submit'         => 'c-comments__form-submit',
+	'name_submit'          => 'submit',
+	'title_reply'          => __( '' ),
+	'title_reply_to'       => __( 'Leave a Reply to %s' ),
+	'title_reply_before'   => false,
+	'title_reply_after'    => false,
+	'cancel_reply_before'  => ' <small>',
+	'cancel_reply_after'   => '</small>',
+	'cancel_reply_link'    => __( 'Отменить комментарий' ),
+	'label_submit'         => __( 'Оставить комментарий' ),
+	'submit_button'        => '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />',
+	'submit_field'         => '<p class="form-submit">%1$s %2$s</p>',
+	'format'               => 'xhtml',
+];
+
+ return comment_form( $defaults );
+}
 
 
 ?>

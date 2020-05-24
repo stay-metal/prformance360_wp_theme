@@ -1,0 +1,124 @@
+
+.dotted-spaced {
+    background-image: linear-gradient(to right, #333 10%, rgba(255, 255, 255, 0) 0%);
+    background-position: top;
+    background-size: 50px 2px;
+    background-repeat: repeat-x;
+  }
+  .left {
+    float: left;
+    padding: 40px 10px;
+    background-color: #F0F0DA;
+  }
+.c-comments{
+    .children{
+        background-image: linear-gradient(to bottom, #AEAEAE 36%, rgba(255, 255, 255, 0) 0%);
+        background-position: left;
+        background-size: 1px 10px;
+        background-repeat: repeat-y;
+        &:before{
+                content: "";
+                position: absolute;
+
+                z-index: -1;
+                background: -webkit-linear-gradient(left, #D7DEE4 70%, transparent 70%),
+                            -webkit-linear-gradient(left, #D7DEE4 50%, transparent 50%),
+                            -webkit-linear-gradient(top, #D7DEE4 50%, transparent 50%),
+                            -webkit-linear-gradient(top, #D7DEE4 50%, transparent 50%);
+                background: linear-gradient(left, blue 50%, transparent 50%),
+                            linear-gradient(left, blue 50%, transparent 50%),
+                            linear-gradient(top, blue 50%, transparent 50%),
+                            linear-gradient(top, blue 50%, transparent 50%); 
+                background-size: 10px 5px,
+                                 10px 5px,
+                                 5px 10px,
+                                 5px 10px;
+                background-repeat: repeat-x,
+                                   repeat-x,
+                                   repeat-y,
+                                   repeat-y;
+                background-position: 0 0,
+                                     left bottom,
+                                     0 0,
+                                     right 0;
+                border-radius: inherit;
+        }
+    }
+    &__list {
+        ul{
+            list-style: none;
+        }
+        list-style: none;
+    }
+    &__avatar {
+        border-radius: 50%;
+    }
+    &__title{
+        font-style: normal;
+        font-weight: normal;
+        font-size: rem-calc(24);
+        line-height: 130%;
+        &_number{
+            &-one{
+                margin-right: rem-calc(7);
+            }
+            &-many{
+                margin-left: rem-calc(7);
+            }
+        }
+    }
+    &__form{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        &-comment{
+            width: 100%;
+        }
+        &-textarea{
+            &::placeholder {
+            color: #CFD1D4;    
+            }
+                border-radius: rem-calc(5);
+                border: 1px solid #CFD1D4;
+                padding-top: rem-calc(15);
+                padding-left: rem-calc(22);
+                margin-bottom: rem-calc(15);
+                font-style: normal;
+                font-weight: normal;
+                font-size: rem-calc(16);
+                line-height: 130%;
+                position: relative;
+                z-index: 10000;
+            }
+            &-name, &-email{
+                i {
+                    position: absolute;
+                    margin-top: rem-calc(18);
+                    margin-left: rem-calc(24);
+                    font-size: rem-calc(15);
+                    color: #CFD1D4;   
+                }
+                input {
+                    border-radius: 0.3125rem;
+                    padding-left: 3.275rem;
+                    max-width: 270px;
+                    border: 1px solid #CFD1D4;
+                    margin-bottom: 0.9375rem;
+                    height: 3.125rem;
+                    &::placeholder {
+                    color: #CFD1D4;    
+                    }
+                 }
+                }
+            &-submit{
+                font-style: normal;
+                font-weight: bold;
+                font-size:  rem-calc(16);
+                line-height:  rem-calc(19);
+                background: #429FFF!important;
+                height: 3.125rem;
+                border-radius: 5px;
+            }
+        }
+    }

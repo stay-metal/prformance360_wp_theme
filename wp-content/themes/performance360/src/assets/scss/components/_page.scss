@@ -12,6 +12,17 @@
         font-weight: 600;
     }
 }
+.c-search-page {
+    &-header{
+        &__title {
+            margin-top: rem-calc(21);
+            font-style: normal;
+            font-weight: bold;
+            font-size: rem-calc(28);
+            line-height: rem-calc(27);
+        }
+    }
+}
 .c-term-page {
     &-sidebar{
         padding-top: rem-calc(16);

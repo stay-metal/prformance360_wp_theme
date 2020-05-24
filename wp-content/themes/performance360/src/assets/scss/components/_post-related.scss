@@ -1,0 +1,97 @@
+.c-post-single{
+    &__title{
+        
+    }
+    &__related{
+        &-content{
+            padding: rem-calc(55 65);
+            border-radius: rem-calc(5);
+            border: 1px solid #DDDDDD;
+        }
+    }
+}
+
+.c-post-single__related-header-title {
+    width: 40%;
+    text-align: center;
+    margin: 0 auto;
+    background: white;
+    position: relative;
+    font-style: normal;
+    font-weight: bold;
+    font-size: rem-calc(28);
+    line-height: 130%;
+    top: rem-calc(17);
+}
+.c-post{
+    &__related {
+        padding-right: rem-calc(20);
+        padding-left: rem-calc(20);
+        width: 50%;
+            .c-post__tags {
+                padding-right: 5px;
+                a {
+                padding: 5px 10px 5px 10px;
+                margin-right: 3px;
+                font-size: 10px;
+                }             
+            }
+            .c-post__time  {
+                min-width: 80px;
+                margin-left: 4px;
+                font-size: 14px; 
+                color:#AEAEAE;
+            }
+
+        &-title{
+            padding: 0px;
+            margin: 0px;
+            padding-top: 10px;
+            padding-bottom: 28px;
+            font-style: normal;
+            font-weight: normal;
+            font-size: rem-calc(17);
+            line-height: 130%;
+            word-break: break-word;
+            a {
+                color: $primary-black;
+            }
+        }
+    }
+}
+@include breakpoint('small') {
+    .c-post-single{
+        &__related{
+            &-content{
+                padding: rem-calc(55 0);
+            }
+        }
+    }
+}
+@include breakpoint('mobile') {
+    .c-post-single{
+        &__related{
+            &-content{
+                padding: rem-calc(55 65);
+            }
+        }
+    }
+}
+@include breakpoint('medium') {
+    .c-post-single{
+        &__related{
+            &-content{
+                padding: rem-calc(55 0);
+            }
+        }
+    }
+}
+@include breakpoint('large') {
+    .c-post-single{
+        &__related{
+            &-content{
+                padding: rem-calc(55 65);
+            }
+        }
+    }
+}
