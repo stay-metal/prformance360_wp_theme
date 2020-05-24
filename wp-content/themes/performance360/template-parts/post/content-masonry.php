@@ -9,7 +9,7 @@
             <?php if ( get_the_post_thumbnail() !== '' ) { ?>
             <div class="c-post__thumbnail c-post-masonry__thumbnail">
                 <div class="u-fadeout-5">
-                <?php the_post_thumbnail('_themename-main-loop-thumb'); ?>
+                <a href="<?php the_permalink(); ?>" title = "<?php the_title_attribute(); ?>" ><?php the_post_thumbnail('_themename-main-loop-thumb'); ?></a>
                 </div>
             </div>
         <?php } ?>

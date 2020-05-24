@@ -34,13 +34,13 @@
             font-style: normal;
             font-weight: bold;
             font-size: rem-calc(48);
-            line-height: rem-calc(58);
-            white-space: nowrap;
+            line-height: rem-calc(48);
+            min-width:  rem-calc(287);
         }
         &__line {
             margin-left: 2.5rem;
             width:100%;
-            height: rem-calc(50);
+            height: rem-calc(47);
             border-bottom: 1px solid $primary-gray;
         }
     }

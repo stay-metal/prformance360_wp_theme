@@ -9,11 +9,16 @@ if ($term_id && $term_id!='') {
 <article <?php post_class( $post_class ); ?>>
         <?php if ( get_the_post_thumbnail() !== '' ) { ?> 
         <div class="c-post-term__thumbnail-container">
-            <div class="c-post-term__thumbnail u-bg-image u-border-radius" style="background-image: url(<?php echo get_the_post_thumbnail_url() ?>)">
-            </div>
+        <a href="<?php the_permalink(); ?>" title = "<?php the_title_attribute(); ?>" ><div class="c-post-term__thumbnail u-bg-image u-border-radius" style="background-image: url(<?php echo get_the_post_thumbnail_url() ?>)">
+            </div></a>
         </div>
-        <?php } ?>
-        <div class="c-post-term__content-container <?php echo (get_the_post_thumbnail() !== '') ? 'c-post-term__content-container_has-thumb' : '' ?> u-flex u-flex-direction-column">
+        <?php } else { ?>
+            <div class="c-post-term__thumbnail-container">
+            <a href="<?php the_permalink(); ?>" title = "<?php the_title_attribute(); ?>" ><div class="c-post-term__thumbnail u-bg-image u-border-radius" style="background-image: url(<?php echo get_template_directory_uri(); ?>/src/assets/images/placeholder.png)"></a>
+            </div>
+        </div>            
+        <?php }?> 
+        <div class="c-post-term__content-container c-post-term__content-container_has-thumb u-flex u-flex-direction-column">
             <?php _themename_post_meta(); ?>
             <h2 class="c-post-term__title">
                 <a href="<?php the_permalink(); ?>" title = "<?php the_title_attribute(); ?>" ><?php the_title(); ?></a>

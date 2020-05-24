@@ -1,5 +1,4 @@
 <?php
-
 function _themename_post_meta() { ?>
     <?php $hasTags = _themename_loop_tags() != ''; ?>
     <?php if (!$hasTags) $timeNoTagsClass = 'c-post__time--no-tags' ?>

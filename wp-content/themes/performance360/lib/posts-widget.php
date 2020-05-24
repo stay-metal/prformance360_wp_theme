@@ -62,9 +62,9 @@ class _themename_Posts_Widgets extends WP_Widget {
                         $posts_query -> the_post();
                         echo '<div class="widget_posts_widget__post-container">';
                             if(get_the_post_thumbnail() !== '') {
-                                echo '<div class="u-bg-image widget_posts_widget__post-thumbnail" style="background-image: url('. get_the_post_thumbnail_url() .'); " >';
+                                echo '<a href="'.get_the_permalink() .'"><div class="u-bg-image widget_posts_widget__post-thumbnail" style="background-image: url('. get_the_post_thumbnail_url() .'); " >';
                                     // the_post_thumbnail( '_themename-posts-widget-thumb' );
-                                echo '</div>';
+                                echo '</div></a>';
                             }
                             if(get_the_post_thumbnail() !== '') {
                             echo '<div class="widget_posts_widget__post-title">';
