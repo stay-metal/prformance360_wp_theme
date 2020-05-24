@@ -11,47 +11,24 @@
     background-color: #F0F0DA;
   }
 .c-comments{
-    .children{
-        background-image: linear-gradient(to bottom, #AEAEAE 36%, rgba(255, 255, 255, 0) 0%);
-        background-position: left;
-        background-size: 1px 10px;
-        background-repeat: repeat-y;
-        &:before{
-                content: "";
-                position: absolute;
-
-                z-index: -1;
-                background: -webkit-linear-gradient(left, #D7DEE4 70%, transparent 70%),
-                            -webkit-linear-gradient(left, #D7DEE4 50%, transparent 50%),
-                            -webkit-linear-gradient(top, #D7DEE4 50%, transparent 50%),
-                            -webkit-linear-gradient(top, #D7DEE4 50%, transparent 50%);
-                background: linear-gradient(left, blue 50%, transparent 50%),
-                            linear-gradient(left, blue 50%, transparent 50%),
-                            linear-gradient(top, blue 50%, transparent 50%),
-                            linear-gradient(top, blue 50%, transparent 50%); 
-                background-size: 10px 5px,
-                                 10px 5px,
-                                 5px 10px,
-                                 5px 10px;
-                background-repeat: repeat-x,
-                                   repeat-x,
-                                   repeat-y,
-                                   repeat-y;
-                background-position: 0 0,
-                                     left bottom,
-                                     0 0,
-                                     right 0;
-                border-radius: inherit;
-        }
-    }
     &__list {
+        margin-left: 0px;
+        margin-top: 110px;
+        > .children{
+                background-image: linear-gradient(to bottom, #AEAEAE 36%, rgba(255, 255, 255, 0) 0%);
+                background-position: left;
+                background-size: 1px 10px;
+                background-repeat: repeat-y;
+        }
+        .children{
+            padding-left: 20px;
+            margin-top: 0px;
+         }
+        
         ul{
             list-style: none;
         }
         list-style: none;
-    }
-    &__avatar {
-        border-radius: 50%;
     }
     &__title{
         font-style: normal;
@@ -122,3 +99,58 @@
             }
         }
     }
+.c-comment {
+    margin-top: 30px;
+    &__text{
+        p{
+            margin-bottom:2px;
+        }
+        font-style: normal;
+        font-weight: normal;
+        font-size: rem-calc(16);
+        line-height: 130%;
+    }
+    &_child{
+            padding-left: 29px;
+    }
+    margin-bottom: 0px;
+    &__content{
+        width:100%;
+    }
+    &__meta{
+        display:flex;
+    }
+    &__time{
+        display:flex;
+        margin-left: 15px;
+        align-items: center;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+        color: #AEAEAE;
+    }
+    &-body{
+        display:flex;
+    }
+    &__author{
+    font-style: normal;
+    font-weight: bold;
+    font-size: rem-calc(18);
+    line-height: 130%;
+    }
+    &__content{
+        padding-left: rem-calc(20);
+    }
+
+    &__avatar {
+        border-radius: 50%;
+        width: rem-calc(50);
+        height: rem-calc(50);
+    }
+}
+.comment-reply-link{
+    color: #AEAEAE;
+    font-size: 14px;
+    line-height: 130%;
+}
