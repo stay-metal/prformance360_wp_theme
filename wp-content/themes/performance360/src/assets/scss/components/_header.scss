@@ -81,6 +81,11 @@
     background-color: $primary-white;
     padding: rem-calc(23) 0;
     color: $primary-black;
+
+    &__menues {
+        position: relative;
+    }
+
     &__logo {
         a {
             &:hover,&:focus {
@@ -102,6 +107,7 @@
     &__search-mobile {
         position: absolute;
         right: 1px;
+        top: -1px;
         &-button{
             background: none;
             color: $primary-black;
@@ -186,6 +192,12 @@
 }
 
 @include breakpoint('medium') {
+    .c-header__soc {
+        display: block;
+    }
+}
+
+@include breakpoint('medium') {
 
     .c_header__menu_100width {
         margin: 0;
@@ -195,7 +207,7 @@
     .c-header {
         padding: rem-calc(23 0 25 0);
             &__soc {
-                display:block;
+                display:none;
             }
             &__search-mobile {
                 display:none;
@@ -215,23 +227,31 @@
         // background-color: green;
     }
 }
+
+@include breakpoint('xmedium') {
+    .c-header {
+        &__soc {
+            display: block;
+        }
+    }
+}
 @include breakpoint('large') {
     .c-header {
         padding: rem-calc(23 0 25 0);
-            &__search-mobile {
-                display:none;
-            }
-            &__mobile-menu {
-                display:none;
-            }  
-            &__menu{
-                display:block;  
-                  
-            } 
-            &__topnav {
-                float: right!important;
-            }                
+        &__search-mobile {
+            display:none;
         }
+        &__mobile-menu {
+            display:none;
+        }  
+        &__menu{
+            display:block;  
+                
+        } 
+        &__topnav {
+            float: right!important;
+        }                
+    }
     body {
         background-color: #E5E5E5;
     }
