@@ -5,6 +5,11 @@
              <main role="main">
                 <?php get_template_part( 'loop', 'single'); ?>
                 <?php  get_template_part( 'template-parts/single/loop', 'related'); ?>
+                <?php 
+                if (comments_open() || get_comments_number()) {
+                comments_template(); 
+                }
+                ?>
             </main>
         </div>
         <?php if ( is_active_sidebar('primary-sidebar') ) { ?>

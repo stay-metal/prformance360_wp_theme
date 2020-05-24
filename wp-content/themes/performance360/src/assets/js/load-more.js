@@ -8,7 +8,8 @@ jQuery(function($){
 			'action': 'loadmore',
 			'query': performance_loadmore_params.posts,
             'page' : performance_loadmore_params.current_page,
-            'is_home': performance_loadmore_params.is_home
+            'is_home': performance_loadmore_params.is_home,
+            'is_search': performance_loadmore_params.is_search,
 		};
  
 		$.ajax({
