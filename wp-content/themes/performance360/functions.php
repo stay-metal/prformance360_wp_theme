@@ -10,6 +10,7 @@ require_once('lib/metaboxes.php');
 require_once('lib/posts-widget.php');
 require_once('lib/subscribe-widget.php');
 require_once('lib/sidebar_pop_posts_widget.php');
+require_once('lib/related-posts.php');
 
 
 

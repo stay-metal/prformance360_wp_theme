@@ -36,3 +36,23 @@
         }
 
 }
+
+@media only screen  and (max-width: 680px)  {
+    .c-post__related {
+        width: 100%!important;
+    }
+    .c-post__related .c-post__tags a {
+        font-size: 8.6px!important;
+    }
+    .c-post__related .c-post__time {
+        font-size: 11px!important;
+    }
+}
+
+@media only screen  and (max-width: 490px)  {
+    .c-post-single__related-header-title {
+        width: 56%!important;
+        font-size: 1.55rem!important;
+    }
+}
+
