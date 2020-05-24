@@ -75,7 +75,29 @@
 
 @include breakpoint('small') {
     .slider-container {
+        .c-post__meta {
+            display: flex;
+            flex-direction: row;
+    
+            .c-post__time {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+@include breakpoint('medium') {
+    .slider-container {
         padding: 20px 15px;
+
+        .c-post__meta {
+            display: flex;
+            flex-direction: column;
+    
+            .c-post__time {
+                margin: 0;
+            }
+        }
     }
 }
 
@@ -83,5 +105,17 @@
     .slider-container {
         padding: 40px 100px;
     }
+}
 
+@include breakpoint('xlarge') {
+    .slider-container {
+        .c-post__meta {
+            display: flex;
+            flex-direction: row;
+    
+            .c-post__time {
+                margin: 10px;
+            }
+        }
+    }
 }
