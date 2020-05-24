@@ -1,6 +1,6 @@
 
 <div class="o-row">
-    <div class="o-row__column o-row__column--span-12">
+    <div class="o-row__column o-row__column--span-12  u-margin-left-0 u-margin-right-0  u-padding-left-0 u-padding-right-0">
     <?php if ( get_the_post_thumbnail() !== '' ) { ?> <div class="u-bg-image u-border-radius" style="background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.6)), url(<?php echo get_the_post_thumbnail_url() ?>)"> <?php } ?>
             <article <?php post_class( 'c-post c-post-big u-margin-bottom-20 u-bg-color-primary-black' ); ?>>
                     <div class="c-post__meta c-post-big__meta">
