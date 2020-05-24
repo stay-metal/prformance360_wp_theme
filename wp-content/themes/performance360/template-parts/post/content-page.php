@@ -14,7 +14,7 @@ if ($term_id && $term_id!='') {
         </div>
         <?php } else { ?>
             <div class="c-post-term__thumbnail-container">
-            <a href="<?php the_permalink(); ?>" title = "<?php the_title_attribute(); ?>" ><div class="c-post-term__thumbnail u-bg-image u-border-radius" style="background-image: url(<?php echo get_template_directory_uri(); ?>/src/assets/images/placeholder.png)"></a>
+            <a href="<?php the_permalink(); ?>" title = "<?php the_title_attribute(); ?>" ><div class="c-post-term__thumbnail u-bg-image u-border-radius" style="background-image: url(<?php echo get_template_directory_uri(); ?>/dist/assets/images/placeholder.png)"></a>
             </div>
         </div>            
         <?php }?> 
