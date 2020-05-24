@@ -137,6 +137,7 @@
         }
         .main-dropdown-menu {
             position: absolute;
+            z-index: 100;
             visibility: hidden;
             text-transform: uppercase;
             display: flex;
