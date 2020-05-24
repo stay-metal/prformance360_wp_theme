@@ -4,13 +4,22 @@
 
 .slider-container {
     .slider-name {
+        min-height: 40px;
         font-size: 22px;
         text-transform: uppercase;
-        margin-bottom: 10px;
+        margin-top: 10px;
     }
 
     .c-post__meta {
         padding: 0 20px;
+    }
+    
+    .c-post__tags {
+        width: 50%;
+    }
+
+    .c-post__tags-link {
+        padding: 0;
     }
 
     .carousel-slider-item {
@@ -88,6 +97,7 @@
             flex-direction: row;
     
             .c-post__time {
+                font-size: 12px;
                 margin-left: 10px;
             }
         }
