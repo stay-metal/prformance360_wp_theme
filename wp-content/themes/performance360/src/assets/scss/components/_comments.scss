@@ -11,6 +11,7 @@
     background-color: #F0F0DA;
   }
 .c-comments{
+    padding-top: rem-calc(105px);
     &__list {
         margin-left: 0px;
         margin-top: 110px;
@@ -153,4 +154,30 @@
     color: #AEAEAE;
     font-size: 14px;
     line-height: 130%;
+}
+
+
+@include breakpoint('small') {
+    .c-comments {
+        padding-top: rem-calc(55);
+    }
+}
+
+@include breakpoint('mobile') {
+    .c-comments {
+        padding-top: rem-calc(55);
+    }
+}
+
+@include breakpoint('medium') {
+    .c-comments {
+        padding-top: 6.5625rem;
+    }
+}
+    
+
+@include breakpoint('large') {
+    .c-comments {
+        padding-top: 6.5625rem;
+    }
 }
