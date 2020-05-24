@@ -5,13 +5,9 @@ $gutter: 20;
     max-width: rem-calc($global-width);
     margin-left: auto;
     margin-right: auto;
-    padding-left: rem-calc($gutter/2);
-    padding-right: rem-calc($gutter/2);
 }
 .o-row {
     display: flex;
-    margin-right: - rem-calc($gutter/2);
-    margin-left: - rem-calc($gutter/2);
     flex-wrap: wrap;
     &__column {
         width: calc(100% - #{rem-calc($gutter)});
